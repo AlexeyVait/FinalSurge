@@ -1,35 +1,55 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
+import static org.testng.Assert.assertEquals;
 
 public class LoginPage {
 
-    public LoginPage open () {
+    public static final String USERNAME_CSS = "#login_name";
+    public static final String PASSWORD_CSS = "#login_password";
+    public static final String LOGIN_SUBMIT_CSS = "#login_password";
+    public static final String errorTextLocator_CSS = "//div[contains(@class, 'alert alert-error')]";
+    public static final String welcomeHome_CSS = "[class=user-info]";
+
+    public LoginPage(WebDriver driver){
+    }
+
+    public LoginPage open() {
         Selenide.open("login.cshtml");
         return this;
     }
 
-    public ProjectsPage login (String user, String pass) {
-        $("#login_name").sendKeys(user);
-        $("#login_password").sendKeys(pass);
-        $("#login_remember").click();
-        $("#login_password").submit();
-        return new ProjectsPage().isOpened();
+    public LoginPage isOpened() {
+        $(welcomeHome_CSS).shouldBe(Condition.visible, Duration.ofSeconds(5));
+        // исправить если что тайминг
+        return this;
     }
 
-    public ProjectsPage password (String user, String pass) {
-        $("#login_name").sendKeys(user);
-        $("#login_password").sendKeys(pass);
-        $("#login_remember").click();
-        $("#login_password").submit();
-        return new ProjectsPage().isOpened();
+
+    public LoginPage login(String user, String pass) {
+        $(USERNAME_CSS).sendKeys(user);
+        $(PASSWORD_CSS).sendKeys(pass);
+        $(LOGIN_SUBMIT_CSS).submit();
+        return this.isOpened();
     }
 
-    public ProjectsPage settings () {
-        $("#UserProfile.cshtml").click();
+    public String getErrorText() {
+        return $(errorTextLocator_CSS).getText();
+    }
 
-        return new ProjectsPage().isOpened();
+    public LoginPage erorr(String user, String pass) {
+        $(USERNAME_CSS).sendKeys(user);
+        $(PASSWORD_CSS).sendKeys(pass);
+        $(LOGIN_SUBMIT_CSS).submit();
+        Assert.assertEquals(getErrorText(), "Invalid login credentials. Please try again.",
+               "Wrong error message appeared");
+        return this;
     }
 }

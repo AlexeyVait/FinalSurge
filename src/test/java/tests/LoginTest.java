@@ -5,24 +5,17 @@ import pages.LoginPage;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(description = "Authorization in site")
     public void userShouldBeAuthorization() {
-        new LoginPage()
+        loginPage
                 .open()
-                .login("5alexbulls5@gmail.com", "Alex51423324150");
+                .login(user, password);
     }
 
-    @Test
-    public void userShouldBeAuthorization2() {
-        new LoginPage()
+    @Test(enabled = false)
+    public void userShouldNotAuthorization() {
+        loginPage
                 .open()
-                .password("5alexbulls5@gmail.com", "Alex51423324150");
-    }
-
-    @Test
-    public void upShouldBeSetting() {
-        new LoginPage()
-                .open()
-                .settings();
+                .erorr("rytu@gmail.com", password);
     }
 }
