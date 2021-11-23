@@ -12,9 +12,9 @@ public class SettingsTest extends BaseTest {
                 .open()
                 .login(user, password);
         settingsPage
-                .isOpened("Settings")
-                .editSettings("Edit")
-                .languageSelection("Language")
-                .saveChanges();
+                .isOpened()
+                .editSettings()
+                .languageSelection("button", "button");
+//                .saveChanges();
     }
 }

@@ -2,12 +2,13 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import pages.OtherCalculatorsPages.CaloricNeedsPage;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static org.testng.Assert.assertEquals;
 
 public class LoginPage {
@@ -18,8 +19,6 @@ public class LoginPage {
     public static final String errorTextLocator_CSS = "//div[contains(@class, 'alert alert-error')]";
     public static final String welcomeHome_CSS = "[class=user-info]";
 
-    public LoginPage(WebDriver driver){
-    }
 
     public LoginPage open() {
         Selenide.open("login.cshtml");

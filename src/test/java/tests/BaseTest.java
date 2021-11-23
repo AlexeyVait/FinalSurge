@@ -2,20 +2,28 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Optional;
 import pages.LoginPage;
+import pages.OtherCalculatorsPages.CaloricNeedsPage;
+import pages.OtherCalculatorsPages.PaceCalculatorPage;
 import pages.SettingsPage;
+import pages.WorkoutCalculatorsPages.*;
 import utils.PropertyReader;
 import org.testng.annotations.BeforeMethod;
 
 
 public class BaseTest {
 
-    public WebDriver driver;
     LoginPage loginPage;
     SettingsPage settingsPage;
+    CaloricNeedsPage caloricNeedsPage;
+    PaceCalculatorPage pacecalculatoPage;
+    HansonsPage hansonsPage;
+    IntensityPage intensityPage;
+    McMillanPage mcmillanPage;
+    PalladinoPage palladinoPage;
+    TinmanPage tinmanPage;
     
     public String user;
     public String password;
@@ -32,8 +40,16 @@ public class BaseTest {
         Configuration.clickViaJs = false;
 
 
-        loginPage = new LoginPage(driver);
-        settingsPage = new SettingsPage(driver);
+        loginPage = new LoginPage();
+        settingsPage = new SettingsPage();
+        caloricNeedsPage = new CaloricNeedsPage();
+        pacecalculatoPage = new PaceCalculatorPage();
+        hansonsPage = new HansonsPage();
+        intensityPage = new IntensityPage();
+        mcmillanPage = new McMillanPage();
+        palladinoPage = new PalladinoPage();
+        tinmanPage = new TinmanPage();
+
     }
 
     @AfterMethod(alwaysRun = true)
