@@ -39,16 +39,20 @@ public class LoginPage {
         return this.isOpened();
     }
 
-    public String getErrorText() {
-        return $(errorTextLocator_CSS).getText();
-    }
-
     public LoginPage erorr(String user, String pass) {
         $(USERNAME_CSS).sendKeys(user);
         $(PASSWORD_CSS).sendKeys(pass);
         $(LOGIN_SUBMIT_CSS).submit();
-        Assert.assertEquals(getErrorText(), "Invalid login credentials. Please try again.",
-               "Wrong error message appeared");
+        return this;
+    }
+
+    public String getErrorText() {
+        return $x(errorTextLocator_CSS).getText();
+    }
+
+
+    public LoginPage validateErrorText(String errorText) {
+        Assert.assertEquals(getErrorText(), errorText, "Invalid login credentials. Please try again.");
         return this;
     }
 }

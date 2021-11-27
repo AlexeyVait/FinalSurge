@@ -11,10 +11,11 @@ public class LoginTest extends BaseTest {
                 .login(user, password);
     }
 
-    @Test(enabled = false)
+    @Test(description = "Authorization is not true")
     public void userShouldNotAuthorization() {
         loginPage
                 .open()
-                .erorr("rytu@gmail.com", password);
+                .erorr("rytu@gmail.com", password)
+                .validateErrorText("Invalid login credentials. Please try again.");
     }
 }

@@ -11,10 +11,10 @@ public class CaloricNeedsTest extends BaseTest {
                 .login(user, password);
         caloricNeedsPage
                 .openCalculators()
-//                .indicateЕheWeightInKg("86")
-//                .indicateРeightInСentimeters("178")
-//                .indicateInAgeMan("25")
-//                .indicateInRunDistance("10")
+                .indicateЕheWeightInKg("86")
+                .indicateРeightInСentimeters("178")
+                .indicateInAgeMan("25")
+                .indicateInRunDistance("10")
                 .CaloricButton();
     }
 }

@@ -1,8 +1,12 @@
 package pages.WorkoutCalculatorsPages;
 
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.switchTo;
+import static pages.WorkoutCalculatorsPages.PalladinoPage.WORKOUT_CALCULATORS_BUTTON;
+
 public class TinmanPage {
 
-    public static final String TINMAN_BUTTON = "//a[@href=https://log.finalsurge.com/TinmanCalc.cshtml?c=1&ssl=1]";
+    public static final String TINMAN_BUTTON = "//a[@href='https://log.finalsurge.com/TinmanCalc.cshtml?c=1&ssl=1']";
     public static final String SELECT_TINAMN = "//select[@name='distance']";
     public static final String KM_10_TINMAN_ = "//select[@name='distance']//option[@value='10']";
     public static final String HALF_MARATHON_TINMAN = "//select[@name='distance']//option[@value='21.0974537664']";
@@ -45,4 +49,40 @@ public class TinmanPage {
     public static final String MALE_TINMAN = "//input[@id='Male']";
     public static final String FEMALE_TINMAN = "//input[@id='Female']";
     public static final String CALCULATE_PACES_TINMAN_BUTTON = "//input[@id='saveButtonSettings'][@value='Calculate Paces']";
+    public static final String RESULT = "//table[@class='table table-condensed table-hover table-striped']";
+
+    public TinmanPage openCalcul() {
+        $x(WORKOUT_CALCULATORS_BUTTON).click();
+        switchTo().frame("IntensityCalciFrame");
+        return this;
+    }
+
+    public TinmanPage openTinman() {
+        $x(TINMAN_BUTTON).click();
+        return this;
+    }
+
+    public TinmanPage Distance() {
+        $x(KM_20_TINMAN).click();
+        return this;
+    }
+
+    public TinmanPage raceTime(String hh, String mi, String sek) {
+        $x(HH_TINMAN).sendKeys(hh);
+        $x(MM_TINMAN).sendKeys(mi);
+        $x(SS_TINMAN).sendKeys(sek);
+        return this;
+    }
+
+    public TinmanPage gender() {
+        $x(MALE_TINMAN).click();
+        return this;
+    }
+
+    public TinmanPage button() {
+        $x(CALCULATE_PACES_TINMAN_BUTTON). click();
+        switchTo().defaultContent();
+        return this;
+    }
+
 }

@@ -1,7 +1,11 @@
 package pages.WorkoutCalculatorsPages;
 
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.switchTo;
+
 public class McMillanPage {
 
+    public static final String WORKOUT_CALCULATORS_BUTTON = "//li//a[@href='#']//i[@class='icsw16-stop-watch']";
     public static final String MC_MILLAN = "//a[@href='https://log.finalsurge.com/McMillanCalc.cshtml?c=1&ssl=1']";
     public static final String SELECT_RACE_DISTANCE = "//select[@id='distance']";
     public static final String METERS_400_MC_MILLAN = "//select[@id='distance']//option[@value='400m']";
@@ -76,6 +80,51 @@ public class McMillanPage {
     public static final String SGD_MILES_100_MC_MILLAN = "//select[@name='goaldistance']//option[@value='100 Miles']";
     public static final String SGD_HH_MC_MILLAN = "//input[@id='GTimeHH']";
     public static final String SGD_MM_MC_MILLAN = "//input[@id='GTimeMM']";
-    public static final String SGD_SS_MC_MILLAN = "GTimeSS";
+    public static final String SGD_SS_MC_MILLAN = "//input[@id='GTimeSS']";
     public static final String CALCULATE_MY_PACES_MC_MILLAN_BUTTON = "//input[@id='saveButtonSettings'][@value='Calculate My Paces']";
+    public static final String RESULT = "//div[@id='CalcBox']";
+    public static final String RECALCULATION_BUTTON = "//a[@class='btn btn-primary']";
+    public static final String ERROR = "//div[@class='alert alert-error']"; // 2 locatora
+
+    public McMillanPage openCalcul() {
+        $x(WORKOUT_CALCULATORS_BUTTON).click();
+        switchTo().frame("IntensityCalciFrame");
+        return this;
+    }
+
+    public McMillanPage openMcMillan() {
+        $x(MC_MILLAN).click();
+        return this;
+    }
+
+    public McMillanPage distance() {
+        $x(KM_10_MC_MILLAN).click();
+        return this;
+    }
+
+    public McMillanPage time(String hh, String mm, String ss) {
+        $x(HH_MC_MILLAN).sendKeys(hh);
+        $x(MM_MC_MILLAN).sendKeys(mm);
+        $x(SS_MC_MILLAN).sendKeys(ss);
+        return this;
+    }
+
+    public McMillanPage distance2() {
+        $x(SGD_KM_15_MC_MILLAN).click();
+        return this;
+    }
+
+    public McMillanPage time2(String hh, String mm, String ss) {
+        $x(SGD_HH_MC_MILLAN).sendKeys(hh);
+        $x(SGD_MM_MC_MILLAN).sendKeys(mm);
+        $x(SGD_SS_MC_MILLAN).sendKeys(ss);
+        return this;
+    }
+
+    public McMillanPage button() {
+        $x(CALCULATE_MY_PACES_MC_MILLAN_BUTTON).click();
+        switchTo().defaultContent();
+        return this;
+    }
+
 }
