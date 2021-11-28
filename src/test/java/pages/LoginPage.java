@@ -7,6 +7,7 @@ import pages.OtherCalculatorsPages.CaloricNeedsPage;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static org.testng.Assert.assertEquals;
@@ -26,7 +27,7 @@ public class LoginPage {
     }
 
     public LoginPage isOpened() {
-        $(welcomeHome_CSS).shouldBe(Condition.visible, Duration.ofSeconds(5));
+        $(welcomeHome_CSS).shouldBe(visible, Duration.ofSeconds(5));
         // исправить если что тайминг
         return this;
     }
@@ -36,7 +37,7 @@ public class LoginPage {
         $(USERNAME_CSS).sendKeys(user);
         $(PASSWORD_CSS).sendKeys(pass);
         $(LOGIN_SUBMIT_CSS).submit();
-        return this.isOpened();
+        return this;
     }
 
     public LoginPage erorr(String user, String pass) {

@@ -1,5 +1,8 @@
 package pages.WorkoutCalculatorsPages;
 
+
+import org.testng.Assert;
+
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static pages.WorkoutCalculatorsPages.PalladinoPage.WORKOUT_CALCULATORS_BUTTON;
@@ -50,37 +53,58 @@ public class TinmanPage {
     public static final String FEMALE_TINMAN = "//input[@id='Female']";
     public static final String CALCULATE_PACES_TINMAN_BUTTON = "//input[@id='saveButtonSettings'][@value='Calculate Paces']";
     public static final String RESULT = "//table[@class='table table-condensed table-hover table-striped']";
+    public static final String ERROR_OF_SITE = "#IntensityCalciFrame";
 
-    public TinmanPage openCalcul() {
+    public TinmanPage openWorkoutCalculators() {
         $x(WORKOUT_CALCULATORS_BUTTON).click();
         switchTo().frame("IntensityCalciFrame");
         return this;
     }
 
-    public TinmanPage openTinman() {
+    public TinmanPage openChapterTinman() {
         $x(TINMAN_BUTTON).click();
         return this;
     }
 
-    public TinmanPage Distance() {
+    public TinmanPage indicateInRunDistance() {
         $x(KM_20_TINMAN).click();
         return this;
     }
 
-    public TinmanPage raceTime(String hh, String mi, String sek) {
+    public TinmanPage indicateTime(String hh, String mi, String sek) {
         $x(HH_TINMAN).sendKeys(hh);
         $x(MM_TINMAN).sendKeys(mi);
         $x(SS_TINMAN).sendKeys(sek);
         return this;
     }
 
-    public TinmanPage gender() {
+    public TinmanPage genderSelection() {
         $x(MALE_TINMAN).click();
         return this;
     }
 
-    public TinmanPage button() {
+    public TinmanPage tinmanSaveButton() {
         $x(CALCULATE_PACES_TINMAN_BUTTON). click();
+        switchTo().defaultContent();
+        return this;
+    }
+
+    public boolean locatorForOutput() {
+        $x(RESULT);
+        return true;
+    }
+
+    public TinmanPage testShouldBeOutputResults () {
+        Assert.assertTrue(locatorForOutput());
+        return this;
+    }
+
+    public String getErrorText () {
+        return  $x(ERROR_OF_SITE).getText();
+    }
+
+    public TinmanPage validateErrorText (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
         switchTo().defaultContent();
         return this;
     }

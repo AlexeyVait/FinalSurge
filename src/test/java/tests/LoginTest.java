@@ -9,6 +9,7 @@ public class LoginTest extends BaseTest {
         loginPage
                 .open()
                 .login(user, password);
+
     }
 
     @Test(description = "Authorization is not true")

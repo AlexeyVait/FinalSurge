@@ -1,13 +1,19 @@
 package pages.OtherCalculatorsPages;
 
+import org.testng.Assert;
+
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PaceCalculatorPage {
 
     //Калькулятор темпа
     public static final String CALORIC_NEEDS_BUTTON_1 = "//li//a[@href='#']//i[@class='icsw16-calculator']";
-    public static final String PACE_CALCULATORS_BUTTON = "//button[@class='btn btn-small btn-inverse disabled']";
-    public static final String DISTANCE = "//input[@id='RunDist']";
+    //public static final String PACE_CALCULATORS_BUTTON = "//button[@class='btn btn-small btn-inverse disabled']";
+    public static final String PACE_CALCULATORS_BUTTON = "//div[@style='width: 475px;']";
+    public static final String DISTANCE = "//input[@class='span3 inline']";
     public static final String DISTANCE_KM = "//select[@id='DistType'][@class='span3']//option[@value='km']";
     public static final String DISTANCE_3KM = "//select[@id='RaceDist']//option[@value='3k']";
     public static final String DISTANCE_5KM = "//select[@id='RaceDist']//option[@value='5k']";
@@ -22,39 +28,56 @@ public class PaceCalculatorPage {
     public static final String TIME_MM = "//input[@id='TimeMM']";
     public static final String TIME_SS = "//input[@id='TimeSS']";
     public static final String CALCULATOR_PACES_BUTTON = "//input[@id='saveButtonSettings'][@value='Calculate Paces']";
-    public static final String ERROR = "//div[@class='alert alert-error']";
-    //RESULT = 4 locatora "//div[@class='w-box w-box-green']//div[@class='w-box-header']//h4";
+    public static final String ERROR = "//a[@data-dismiss='alert']";
+    public static final String RESULT = "//i[@class='splashy-help pop-over'][@data-content='These are common splits based off the pace calculated above.']";
 
-    public PaceCalculatorPage openCalculators1() {
+    public PaceCalculatorPage openOtherCalculators() {
         $x(CALORIC_NEEDS_BUTTON_1).click();
         switchTo().frame("OtherCalciFrame");
         return this;
     }
 
-    public PaceCalculatorPage paceCAL() {
+    public PaceCalculatorPage openChapterPace() {
         $x(PACE_CALCULATORS_BUTTON).doubleClick();
         return this;
     }
 
-    public PaceCalculatorPage distance(String Dist) {
+    public PaceCalculatorPage indicateInRunDistance(String Dist) {
         $x(DISTANCE).sendKeys(Dist);
         $x(DISTANCE_KM).click();
-        //$x(DISTANCE_12KM).click();
         return this;
     }
 
-    public PaceCalculatorPage time(String chas, String minut, String sek) {
+    public PaceCalculatorPage indicateTime(String chas, String minut, String sek) {
         $x(TIME_HH).sendKeys(chas);
         $x(TIME_MM).sendKeys(minut);
         $x(TIME_SS).sendKeys(sek);
         return this;
     }
 
-    public PaceCalculatorPage paceCalculators1() {
-        $x(CALCULATOR_PACES_BUTTON).click();
-        switchTo().defaultContent();
+    public PaceCalculatorPage paceSaveButton() {
+        $x(CALCULATOR_PACES_BUTTON).submit();
         return this;
     }
 
+    public boolean locatorForOutput() {
+        $x(RESULT);
+        return true;
+    }
 
+    public PaceCalculatorPage testShouldBeOutputResults () {
+        Assert.assertTrue(locatorForOutput());
+        return this;
+    }
+
+    public String getErrorText () {
+        switchTo().defaultContent();
+        return $x(ERROR).getText();
+    }
+
+    public PaceCalculatorPage validateErrorText (String errorText) {
+        Assert.assertEquals(getErrorText(), errorText, "Please fix the following errors:");
+        switchTo().defaultContent();
+        return this;
+    }
 }

@@ -28,16 +28,21 @@ public class SettingsPage {
         return this;
     }
 
-    public SettingsPage languageSelection(String ENG, String RUS) {
-        if (RUS == null) {
-            $(LANGUAGE_RUS_BUTTON).click();
-        } else{
-            $(LANGUAGE_ENG_BUTTON).click();
-        } if(ENG == null){
-            $(LANGUAGE_ENG_BUTTON).click();
-        } else {
-            $(LANGUAGE_RUS_BUTTON).click();
-        }
+    String ENG = LANGUAGE_ENG_BUTTON;
+    String RUS = LANGUAGE_RUS_BUTTON;
+
+    public SettingsPage languageSelection() {
+        String ENG = LANGUAGE_ENG_BUTTON;
+        String RUS = LANGUAGE_RUS_BUTTON;
+        try {
+            if (RUS != null) {
+                $(LANGUAGE_ENG_BUTTON).click();
+            }
+            if (ENG != null) {
+                $(LANGUAGE_RUS_BUTTON).click();
+            }
+        } catch (Exception ignored) {}
         return new SettingsPage().saveChanges();
     }
 }
+

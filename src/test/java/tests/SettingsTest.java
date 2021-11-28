@@ -14,7 +14,6 @@ public class SettingsTest extends BaseTest {
         settingsPage
                 .isOpened()
                 .editSettings()
-                .languageSelection("button", "button");
-                //.saveChanges();
+                .languageSelection();
     }
 }

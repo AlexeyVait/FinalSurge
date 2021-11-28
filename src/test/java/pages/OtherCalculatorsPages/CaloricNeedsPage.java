@@ -22,29 +22,34 @@ public class CaloricNeedsPage {
     //public static final String MILES = "//input[@id='optionsRadios7']";
     public static final String KILOMETERS = "//input[@id='optionsRadios8']";
     public static final String CALCULATING_THE_REQUIRED_CALORIES_BUTTON = "//input[@id='saveButtonSettings']/../..//input";
-    public static final String DATA_RESULT  = "//table[@class='table table-condensed table-hover table-striped']";
+    public static final String DATA_RESULT= "//div[@class='w-box w-box-green']";
+    public static final String ERROR  = "//div[@class='alert alert-error']";
 
-    public CaloricNeedsPage openCalculators() {
+    public CaloricNeedsPage openOtherCalculators() {
         $x(CALORIC_NEEDS_BUTTON_2).click();
         switchTo().frame("OtherCalciFrame");
         //switchTo().defaultContent();
         return this;
     }
 
-    public CaloricNeedsPage indicateЕheWeightInKg(String kg) {
+    public CaloricNeedsPage indicateWeightInKilograms(String kg) {
         $x(WEIGHT).sendKeys(kg);
         $x(KG).click();
         return this;
     }
 
-    public CaloricNeedsPage indicateРeightInСentimeters(String cm) {
+    public CaloricNeedsPage indicateLengthInCentimeters(String cm) {
         $x(ROST).sendKeys(cm);
         $x(CENTIMETERS).click();
         return this;
     }
 
-    public CaloricNeedsPage indicateInAgeMan(String age) {
+    public CaloricNeedsPage indicateAge(String age) {
         $x(AGE).sendKeys(age);
+        return this;
+    }
+
+    public CaloricNeedsPage genderSelection() {
         $x(MALE).click();
         return this;
     }
@@ -55,18 +60,29 @@ public class CaloricNeedsPage {
         return this;
     }
 
-    public CaloricNeedsPage CaloricButton () {
+    public CaloricNeedsPage caloricSaveButton () {
         $x(CALCULATING_THE_REQUIRED_CALORIES_BUTTON).click();
-        switchTo().defaultContent();
+        //switchTo().defaultContent();
         return this;
     }
 
-//    public String trueData2 () {
-//        return  $x(DATA_RESULT).getText();
-//    }
-//
-//    public CaloricNeedsPage trueData () {
-//        Assert.assertTrue(trueData2);
-//        return this;
-//    }
+    public boolean locatorForOutput() {
+        $x(DATA_RESULT);
+        return true;
+    }
+
+    public String getErrorText () {
+        return  $x(ERROR).getText();
+    }
+
+    public CaloricNeedsPage testShouldBeOutputResults () {
+        Assert.assertTrue(locatorForOutput());
+        return this;
+    }
+
+    public CaloricNeedsPage validateErrorText (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        switchTo().defaultContent();
+        return this;
+    }
 }

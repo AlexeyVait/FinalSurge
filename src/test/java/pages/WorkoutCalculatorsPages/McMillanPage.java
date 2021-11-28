@@ -1,5 +1,7 @@
 package pages.WorkoutCalculatorsPages;
 
+import org.testng.Assert;
+
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
 
@@ -82,49 +84,68 @@ public class McMillanPage {
     public static final String SGD_MM_MC_MILLAN = "//input[@id='GTimeMM']";
     public static final String SGD_SS_MC_MILLAN = "//input[@id='GTimeSS']";
     public static final String CALCULATE_MY_PACES_MC_MILLAN_BUTTON = "//input[@id='saveButtonSettings'][@value='Calculate My Paces']";
-    public static final String RESULT = "//div[@id='CalcBox']";
+    public static final String RESULT = "//a[@id='btnShowEndurance']";
     public static final String RECALCULATION_BUTTON = "//a[@class='btn btn-primary']";
     public static final String ERROR = "//div[@class='alert alert-error']"; // 2 locatora
 
-    public McMillanPage openCalcul() {
+    public McMillanPage openWorkoutCalculators() {
         $x(WORKOUT_CALCULATORS_BUTTON).click();
         switchTo().frame("IntensityCalciFrame");
         return this;
     }
 
-    public McMillanPage openMcMillan() {
+    public McMillanPage openChapterMcMillan() {
         $x(MC_MILLAN).click();
         return this;
     }
 
-    public McMillanPage distance() {
+    public McMillanPage indicateInEstimatedRunDistance() {
         $x(KM_10_MC_MILLAN).click();
         return this;
     }
 
-    public McMillanPage time(String hh, String mm, String ss) {
+    public McMillanPage indicateEstimatedTime(String hh, String mm, String ss) {
         $x(HH_MC_MILLAN).sendKeys(hh);
         $x(MM_MC_MILLAN).sendKeys(mm);
         $x(SS_MC_MILLAN).sendKeys(ss);
         return this;
     }
 
-    public McMillanPage distance2() {
+    public McMillanPage indicateInRunDistanceOptional() {
         $x(SGD_KM_15_MC_MILLAN).click();
         return this;
     }
 
-    public McMillanPage time2(String hh, String mm, String ss) {
+    public McMillanPage indicateTimeOptional(String hh, String mm, String ss) {
         $x(SGD_HH_MC_MILLAN).sendKeys(hh);
         $x(SGD_MM_MC_MILLAN).sendKeys(mm);
         $x(SGD_SS_MC_MILLAN).sendKeys(ss);
         return this;
     }
 
-    public McMillanPage button() {
+    public McMillanPage mcMillanSaveButton() {
         $x(CALCULATE_MY_PACES_MC_MILLAN_BUTTON).click();
         switchTo().defaultContent();
         return this;
     }
 
+    public boolean locatorForOutput() {
+        $x(RESULT);
+        return true;
+    }
+
+    public McMillanPage testShouldBeOutputResults () {
+        Assert.assertTrue(locatorForOutput());
+        return this;
+    }
+
+    public String getErrorText () {
+        return  $x(ERROR).getText();
+    }
+
+    public McMillanPage validateErrorText (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        switchTo().defaultContent();
+        return this;
+    }
 }

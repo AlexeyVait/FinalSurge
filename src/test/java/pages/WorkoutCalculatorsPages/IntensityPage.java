@@ -1,5 +1,7 @@
 package pages.WorkoutCalculatorsPages;
 
+import org.testng.Assert;
+
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
 
@@ -23,13 +25,13 @@ public class IntensityPage {
     //green test = 2 lokatora
     public static final String RESULT = "//table[@class='table table-condensed table-hover']";
 
-    public IntensityPage openCalcul() {
+    public IntensityPage openWorkoutCalculators() {
         $x(WORKOUT_CALCULATORS_BUTTON).click();
         switchTo().frame("IntensityCalciFrame");
         return this;
     }
 
-    public IntensityPage openIntensity() {
+    public IntensityPage openChapterIntensity() {
         $x(Intensity).click();
         return this;
     }
@@ -46,8 +48,28 @@ public class IntensityPage {
         return this;
     }
 
-    public IntensityPage calButton() {
+    public IntensityPage intensitySaveButton() {
         $x(CALCULATE_PACES_INTENSITY_BUTTON).click();
+        switchTo().defaultContent();
+        return this;
+    }
+
+    public boolean locatorForOutput() {
+        $x(RESULT);
+        return true;
+    }
+
+    public IntensityPage testShouldBeOutputResults () {
+        Assert.assertTrue(locatorForOutput());
+        return this;
+    }
+
+    public String getErrorText () {
+        return  $x(ERROR_TIME_MILE).getText();
+    }
+
+    public IntensityPage validateErrorText (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
         switchTo().defaultContent();
         return this;
     }

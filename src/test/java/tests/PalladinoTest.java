@@ -6,25 +6,130 @@ import org.testng.annotations.Test;
 public class PalladinoTest extends BaseTest {
 
     @Test
-    public void openCalcul() {
+    public void shouldBeToCalculateThePalladino() {
         loginPage
                 .open()
                 .login(user, password);
         palladinoPage
-                .openCalcul()
-                .openPalladino()
-                .CP("115")
-                .RWC("20")
-                .button()
-                .shortTest("5", "22", "55")
-                .longTest("7", "33", "44")
-                .button2()
-                .raceTest("2", "24", "41")
-                .raceAvgTest("58")
-                .button3()
-                .race2Test("8", "13", "47")
-                .button4();
+                .openWorkoutCalculators()
+                .openChapterPalladino()
+                .criticalPower("115")
+                .reserveWorkCapacity("20")
+                .pacesSaveButton()
+                .shortTest("5", "22")
+                .shortTestAvgPower("55")
+                .longTest("7", "33")
+                .longTestAvgPower("44")
+                .resultsSaveButtonOne()
+                .raceTimeOne("2", "24", "39")
+                .raceAvgPowerOne("42")
+                .resultsSaveButtonTwo()
+                .raceTimeTwo("8", "30")
+                .raceAvgPowerTwo("47")
+                .resultsSaveButtonFree()
+                .testShouldBeOutputResultsPaceCalculator()
+                .testShouldBeOutputEstimateResultsFirst()
+                .testShouldBeOutputEstimateResultsSecond()
+                .testShouldBeOutputEstimateResultsThird();
+    }
 
+    @Test
+    public void errorEnteringValuesPaceCalculator() {
+        loginPage
+                .open()
+                .login(user, password);
+        palladinoPage
+                .openWorkoutCalculators()
+                .openChapterPalladino()
+                .criticalPower("")
+                .reserveWorkCapacity("20")
+                .pacesSaveButton()
+                .shortTest("5", "22")
+                .shortTestAvgPower("55")
+                .longTest("7", "33")
+                .longTestAvgPower("44")
+                .resultsSaveButtonOne()
+                .raceTimeOne("2", "24", "39")
+                .raceAvgPowerOne("42")
+                .resultsSaveButtonTwo()
+                .raceTimeTwo("8", "30")
+                .raceAvgPowerTwo("47")
+                .resultsSaveButtonFree()
+                .validateErrorTextPaceCalculator("Please fix the following errors:");
+    }
 
+    @Test
+    public void errorEnteringValuesResultFirst() {
+        loginPage
+                .open()
+                .login(user, password);
+        palladinoPage
+                .openWorkoutCalculators()
+                .openChapterPalladino()
+                .criticalPower("")
+                .reserveWorkCapacity("20")
+                .pacesSaveButton()
+                .shortTest("5", "22")
+                .shortTestAvgPower("55")
+                .longTest("7", "33")
+                .longTestAvgPower("44")
+                .resultsSaveButtonOne()
+                .raceTimeOne("2", "24", "39")
+                .raceAvgPowerOne("42")
+                .resultsSaveButtonTwo()
+                .raceTimeTwo("8", "30")
+                .raceAvgPowerTwo("47")
+                .resultsSaveButtonFree()
+                .validateErrorTextFirst("Please fix the following errors:");
+    }
+
+    @Test
+    public void errorEnteringValuesResultSecond() {
+        loginPage
+                .open()
+                .login(user, password);
+        palladinoPage
+                .openWorkoutCalculators()
+                .openChapterPalladino()
+                .criticalPower("")
+                .reserveWorkCapacity("20")
+                .pacesSaveButton()
+                .shortTest("5", "22")
+                .shortTestAvgPower("55")
+                .longTest("7", "33")
+                .longTestAvgPower("44")
+                .resultsSaveButtonOne()
+                .raceTimeOne("2", "24", "39")
+                .raceAvgPowerOne("42")
+                .resultsSaveButtonTwo()
+                .raceTimeTwo("8", "30")
+                .raceAvgPowerTwo("47")
+                .resultsSaveButtonFree()
+                .validateErrorTextSecond("Please fix the following errors:");
+    }
+
+    @Test
+    public void errorEnteringValuesResultThird() {
+        loginPage
+                .open()
+                .login(user, password);
+        palladinoPage
+                .openWorkoutCalculators()
+                .openChapterPalladino()
+                .criticalPower("")
+                .reserveWorkCapacity("20")
+                .pacesSaveButton()
+                .shortTest("5", "22")
+                .shortTestAvgPower("55")
+                .longTest("7", "33")
+                .longTestAvgPower("44")
+                .resultsSaveButtonOne()
+                .raceTimeOne("2", "24", "39")
+                .raceAvgPowerOne("42")
+                .resultsSaveButtonTwo()
+                .raceTimeTwo("8", "30")
+                .raceAvgPowerTwo("47")
+                .resultsSaveButtonFree()
+                .validateErrorTextThird("Please fix the following errors:");
     }
 }

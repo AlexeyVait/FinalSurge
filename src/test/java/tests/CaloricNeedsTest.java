@@ -10,11 +10,29 @@ public class CaloricNeedsTest extends BaseTest {
                 .open()
                 .login(user, password);
         caloricNeedsPage
-                .openCalculators()
-                .indicateЕheWeightInKg("86")
-                .indicateРeightInСentimeters("178")
-                .indicateInAgeMan("25")
+                .openOtherCalculators()
+                .indicateWeightInKilograms("86")
+                .indicateLengthInCentimeters("178")
+                .indicateAge("25")
+                .genderSelection()
                 .indicateInRunDistance("10")
-                .CaloricButton();
+                .caloricSaveButton()
+                .testShouldBeOutputResults();
+    }
+
+    @Test
+    public void errorEnteringValues() {
+        loginPage
+                .open()
+                .login(user, password);
+        caloricNeedsPage
+                .openOtherCalculators()
+                .indicateWeightInKilograms("86")
+                .indicateLengthInCentimeters("178")
+                .indicateAge("")
+                .genderSelection()
+                .indicateInRunDistance("10")
+                .caloricSaveButton()
+                .validateErrorText("Please fix the following errors:");
     }
 }

@@ -1,5 +1,8 @@
 package pages.WorkoutCalculatorsPages;
 
+import org.testng.Assert;
+import pages.OtherCalculatorsPages.CaloricNeedsPage;
+
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
 
@@ -37,36 +40,36 @@ public class HansonsPage {
     public static final String WIND_SPEED_HANSONS = "//input[@id='Wind']";
     public static final String MPH_HANSONS = "//select[@id='SpeedType']//option[@value='mph']";
     public static final String KPH_HANSONS = "//select[@id='SpeedType']//option[@value='kph']";
-    public static final String CALCULATE_PACES_HANSONS_BUTTON = "//input[@value='Calculate Paces']";
+    public static final String CALCULATE_PACES_HANSONS_BUTTON = "//div[@class='span6'][@style='width: 575px;']";
     //error (temperatura max=150'F', 'C')(humidity max=100%); PROVERIT DISTANCE 30K (ERROR) !!!
     public static final String ERROR_TIME_MILE = "//div[@class='alert alert-error']";
-    public static final String RESULT = "//table[@class='table table-condensed table-hover table-striped']";// 3 локатора
+    public static final String RESULT = "//div[@class='alert alert-info']";
 
-    public HansonsPage openCalcul() {
+    public HansonsPage openWorkoutCalculators() {
         $x(WORKOUT_CALCULATORS_BUTTON).click();
         switchTo().frame("IntensityCalciFrame");
         return this;
     }
 
-    public HansonsPage openHansons() {
+    public HansonsPage openChapterHansons() {
         $x(HANSONS).click();
         return this;
     }
 
-    public HansonsPage distance(String dis) {
+    public HansonsPage indicateInRunDistance(String dis) {
         $x(DISTANCE_HANSONS).sendKeys(dis);
         $x(KM_HANSONS).click();
         return this;
     }
 
-    public HansonsPage time(String hh, String mm, String ss) {
+    public HansonsPage indicateTime(String hh, String mm, String ss) {
         $x(HH_HANSONS).sendKeys(hh);
         $x(MM_HANSONS).sendKeys(mm);
         $x(SS_HANSONS).sendKeys(ss);
         return this;
     }
 
-    public HansonsPage optional(String temp, String humidity, String speed) {
+    public HansonsPage dataAdjustments (String temp, String humidity, String speed) {
         $x(TEMPERATURE_HANSONS).sendKeys(temp);
         $x(C_HANSONS).click();
         $x(HUMIDITY_HANSONS).sendKeys(humidity);
@@ -75,10 +78,29 @@ public class HansonsPage {
         return this;
     }
 
-    public HansonsPage button() {
-        $x(CALCULATE_PACES_HANSONS_BUTTON).click();
-        switchTo().defaultContent();
+    public HansonsPage hansonSaveButton() {
+        $x(CALCULATE_PACES_HANSONS_BUTTON).submit();
+        //switchTo().defaultContent();
         return this;
     }
 
+    public boolean locatorForOutput() {
+        $x(RESULT);
+        return true;
+    }
+
+    public HansonsPage testShouldBeOutputResults () {
+        Assert.assertTrue(locatorForOutput());
+        return this;
+    }
+
+    public String getErrorText () {
+        return  $x(ERROR_TIME_MILE).getText();
+    }
+
+    public HansonsPage validateErrorText (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        switchTo().defaultContent();
+        return this;
+    }
 }
