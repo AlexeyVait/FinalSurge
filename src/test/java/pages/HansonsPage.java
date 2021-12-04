@@ -1,7 +1,6 @@
-package pages.WorkoutCalculatorsPages;
+package pages;
 
 import org.testng.Assert;
-import pages.OtherCalculatorsPages.CaloricNeedsPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;

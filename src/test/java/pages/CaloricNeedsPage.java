@@ -1,4 +1,4 @@
-package pages.OtherCalculatorsPages;
+package pages;
 
 import org.testng.Assert;
 

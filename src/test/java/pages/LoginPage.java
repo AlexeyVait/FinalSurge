@@ -1,9 +1,7 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import org.testng.Assert;
-import pages.OtherCalculatorsPages.CaloricNeedsPage;
 
 import java.time.Duration;
 

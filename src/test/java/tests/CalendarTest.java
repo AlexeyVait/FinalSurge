@@ -10,12 +10,12 @@ public class CalendarTest extends BaseTest {
                 .open()
                 .login(user, password);
         calendarPage
-                .viborDay()
+                  .selectionDay()
                 .timeAndDay()
-                .viborTimeAndDay()
-                //.viborActivityType_1()
-                .viborActivityType_2()
-                .nazvanieTrenirovki("Beg po cholmam")
+                .selectionTimeAndDay()
+                .selectionActivityType_1()
+                .selectionActivityType_2()
+                .workoutName("Beg po cholmam")
                 .workDescription("Begovaia trenorivka")
                 .galochka()
                 .distancePlanGalka("13")

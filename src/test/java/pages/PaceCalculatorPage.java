@@ -1,10 +1,7 @@
-package pages.OtherCalculatorsPages;
+package pages;
 
 import org.testng.Assert;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PaceCalculatorPage {

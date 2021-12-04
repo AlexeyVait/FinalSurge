@@ -4,12 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Optional;
-import pages.CalendarPage;
-import pages.LoginPage;
-import pages.OtherCalculatorsPages.CaloricNeedsPage;
-import pages.OtherCalculatorsPages.PaceCalculatorPage;
-import pages.SettingsPage;
-import pages.WorkoutCalculatorsPages.*;
+import pages.*;
 import utils.PropertyReader;
 import org.testng.annotations.BeforeMethod;
 
@@ -55,8 +50,8 @@ public class BaseTest {
 
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void close() {
-        Selenide.closeWebDriver();
-    }
+//    @AfterMethod(alwaysRun = true)
+//    public void close() {
+//        Selenide.closeWebDriver();
+//    }
 }

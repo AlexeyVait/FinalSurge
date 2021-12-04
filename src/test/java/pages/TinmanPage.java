@@ -1,11 +1,11 @@
-package pages.WorkoutCalculatorsPages;
+package pages;
 
 
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
-import static pages.WorkoutCalculatorsPages.PalladinoPage.WORKOUT_CALCULATORS_BUTTON;
+import static pages.PalladinoPage.WORKOUT_CALCULATORS_BUTTON;
 
 public class TinmanPage {
 

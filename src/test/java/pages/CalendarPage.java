@@ -4,10 +4,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class CalendarPage {
 
-    public static final String PLUS_CALENDAR = "//td[@data-day='4']";
+    public static final String PLUS_CALENDAR = "//td[@data-day]";
     //public static final String DESEMBR = "//a[@data-day='13'][@data-month='12'][@class='quick-add']";
 
-    public static final String TIME_OF_DAY = "//input[@id='WorkoutTime']";//click
+    public static final String  TIME_OF_DAY = "//input[@id='WorkoutTime']";//click
     public static final String CHOICE_TIME_OF_DAY = "//ul[@class='ui-timepicker-list picktime']";//click
 
     public static final String ACTIVITY_TYPE = "//select[@id='ActivityType']";//click
@@ -121,8 +121,8 @@ public class CalendarPage {
     public static final String CANCEL = "//a[@id='CancelClose']";
 
     //Тест ставим на 30.11.2021 (локаторы по календарю)
-    public static final String CALENDAR = "//div[@class='fc-day-content'][@data-day='3'][@data-month='12']"; //В зависимости от дней, локатор будет меняться
-    public static final String VIEW = "//a[@class='full-view']";
+    public static final String CALENDAR = "//div[@class='fc-event-activity-title']"; //В зависимости от дней, локатор будет меняться
+        public static final String VIEW = "//a[@class='full-view']";
         public static final String UPDATE_WORKOUT_BUTTON_VIEW = "//span[@class='dropdown-toggle']";
         public static final String DATA_CALENDAR_VIEW = "//I[@class='icon-calendar']";//
         public static final String TIME_OF_DAY_VIEW = "//input[@id='WorkoutTime']";
@@ -244,7 +244,8 @@ public class CalendarPage {
         public static final String DELETE_OK = "//a[@data-handler='1']";
 
 
-    public CalendarPage viborDay() {
+
+    public CalendarPage selectionDay() {
         $x(PLUS_CALENDAR).submit();
         return this;
     }
@@ -254,21 +255,21 @@ public class CalendarPage {
         return this;
     }
 
-    public CalendarPage viborTimeAndDay() {
+    public CalendarPage selectionTimeAndDay() {
         $x(CHOICE_TIME_OF_DAY).click();
         return this;
     }
 
-    public CalendarPage viborActivityType_1() {
+    public CalendarPage selectionActivityType_1() {
         $x(ACTIVITY_TYPE).click();
         return this;
     }
-    public CalendarPage viborActivityType_2() {
+    public CalendarPage selectionActivityType_2() {
         $x(FARTLEK_ACTIVITY_TYPE).click();
         return this;
     }
 
-    public CalendarPage nazvanieTrenirovki(String name) {
+    public CalendarPage workoutName(String name) {
         $x(WORKOUT_NAME).sendKeys(name);
         return this;
     }
@@ -488,7 +489,7 @@ public class CalendarPage {
         return this;
     }
 
-    public CalendarPage updateRazminki() {//
+    public CalendarPage updateRazminki() {
         $x(RAZMINKA).click();
         return this;
     }
@@ -524,7 +525,7 @@ public class CalendarPage {
     }
 
     public CalendarPage updateOhlachdeniaDistanceSelectKm() {
-        $x(DISTANCE_SELECT_KM_OHLACHDENIA).click();
+        $x(DISTANCE_SELECT_KM_OHLACHDENIA).scrollIntoView(true).click();
         return this;
     }
 
