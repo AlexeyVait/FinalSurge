@@ -1,0 +1,78 @@
+package tests;
+
+import org.testng.annotations.Test;
+
+public class CalendarTest extends BaseTest {
+
+    @Test
+    public void calenarTestDobavlenie() {
+        loginPage
+                .open()
+                .login(user, password);
+        calendarPage
+                .viborDay()
+                .timeAndDay()
+                .viborTimeAndDay()
+                //.viborActivityType_1()
+                .viborActivityType_2()
+                .nazvanieTrenirovki("Beg po cholmam")
+                .workDescription("Begovaia trenorivka")
+                .galochka()
+                .distancePlanGalka("13")
+                .selectDistanceGalka()
+                .selectKmDistanceGalka()
+                .planTimeGalka("1", "20", "35")
+                .distancePlan("17")
+                .selectDistance()
+                .selectKmDistance()
+                .planTime("1", "55", "22")
+                .selectSpeed()
+                .selectKmSpeed()
+                .selectSamochyvstvie()
+                .selectSamochyvstvieGood()
+                .selectYsilie()
+                .itogYsilie()
+                .zametki("Была очень тяжелая тренировка бега")
+                .dopGalka()
+                .obcheeMesto("20")
+                .vozrastGrupa("18")
+                .saveGalka()
+                .dobavitTrenirivky()
+                .openCalendar()
+                .openView()
+                .openRedactirovanie()
+                .updateDistance("22")
+                .selectUpdateRasstoianie()
+                .selectUpdateKmRasstoianie()
+                .updateTime("2", "12", "33")
+                .updateSamochuvstvie()
+                .updateYsilie()
+                .updateUrovenYsilie()
+                .minUdarVMinyty("70")
+                .sredneUdarVMinyty("110")
+                .maxUdarVMinyty("150")
+                .caloriesUpdate("2800")
+                .updateGalka()
+                .updatePogoda()
+                .updatePogodaGalka()
+                .updateGradys("35")
+                .updateSelectGradys()
+                .updateSelectCGradys()
+                .updateVlaga("55")
+                .updateRazminki()
+                .updateRazminkiDistance("3")
+                .updateRazminkiSelect()
+                .updateRazminkiSelectKm()
+                .updateRazminkiTime("00", "25", "38")
+                .updateOhlachdeniaDistance("2")
+                .updateOhlachdeniaDistanceSelect()
+                .updateOhlachdeniaDistanceSelectKm()
+                .updateOhlachdeniaTime("00", "33", "47")
+                .updateBibliotekaGalka()
+                .updateTrenirovki()
+                .openCalendarResult()
+                .clickNaGotovTrenirovky()
+                .deleteResultTrenirovki()
+                .deleteResultTrenirovkiOK();
+    }
+}

@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Optional;
+import pages.CalendarPage;
 import pages.LoginPage;
 import pages.OtherCalculatorsPages.CaloricNeedsPage;
 import pages.OtherCalculatorsPages.PaceCalculatorPage;
@@ -15,6 +16,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
+    CalendarPage calendarPage;
     LoginPage loginPage;
     SettingsPage settingsPage;
     CaloricNeedsPage caloricNeedsPage;
@@ -49,6 +51,7 @@ public class BaseTest {
         mcmillanPage = new McMillanPage();
         palladinoPage = new PalladinoPage();
         tinmanPage = new TinmanPage();
+        calendarPage = new CalendarPage();
 
     }
 

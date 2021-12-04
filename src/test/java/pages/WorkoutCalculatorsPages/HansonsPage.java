@@ -10,7 +10,7 @@ public class HansonsPage {
 
     public static final String WORKOUT_CALCULATORS_BUTTON = "//li//a[@href='#']//i[@class='icsw16-stop-watch']";
     public static final String HANSONS = "//a[@href='https://log.finalsurge.com/HansonsCalc.cshtml?c=1&ssl=1']";
-    public static final String Select = "//select[@id='RaceDist']//option[@value='']['Select']"; //??????
+    public static final String Select = "//select[@id='RaceDist'][@class='span4']"; //??????
     public static final String Marathon_Hansons = "//select[@id='RaceDist']//option[@value='Marathon']"; //??????
     public static final String Half_Marathon_Hansons = "//select[@id='RaceDist']//option[@value='Half Marathon']"; //??????
     public static final String METRES_1500 = "//select[@id='RaceDist']//option[@value='1500m']";//??????
