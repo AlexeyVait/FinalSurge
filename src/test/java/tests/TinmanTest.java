@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class TinmanTest extends BaseTest{
 
-    @Test
+    @Test(description = "Result for Tinman test")
     public void shouldBeToCalculateTheTinman() {
         loginPage
                 .open()
@@ -19,7 +19,7 @@ public class TinmanTest extends BaseTest{
                 .testShouldBeOutputResults();
     }
 
-    @Test
+    @Test(enabled = false, description = "Error entering values for Tinman test")
     public void errorEnteringValues() {
         loginPage
                 .open()
@@ -28,7 +28,7 @@ public class TinmanTest extends BaseTest{
                 .openWorkoutCalculators()
                 .openChapterTinman()
                 .indicateInRunDistance()
-                .indicateTime("2", "33", "45")
+                .indicateTime("", "", "")
                 .genderSelection()
                 .tinmanSaveButton()
                 .validateErrorText("Please fix the following errors:");

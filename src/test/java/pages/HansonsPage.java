@@ -79,7 +79,6 @@ public class HansonsPage {
 
     public HansonsPage hansonSaveButton() {
         $x(CALCULATE_PACES_HANSONS_BUTTON).submit();
-        //switchTo().defaultContent();
         return this;
     }
 

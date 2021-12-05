@@ -53,7 +53,7 @@ public class TinmanPage {
     public static final String FEMALE_TINMAN = "//input[@id='Female']";
     public static final String CALCULATE_PACES_TINMAN_BUTTON = "//input[@id='saveButtonSettings'][@value='Calculate Paces']";
     public static final String RESULT = "//table[@class='table table-condensed table-hover table-striped']";
-    public static final String ERROR_OF_SITE = "#IntensityCalciFrame";
+    public static final String ERROR_OF_SITE = "//a[@data-dismiss='alert']";
 
     public TinmanPage openWorkoutCalculators() {
         $x(WORKOUT_CALCULATORS_BUTTON).click();

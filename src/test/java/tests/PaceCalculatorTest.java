@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class PaceCalculatorTest extends BaseTest {
 
-    @Test
+    @Test(description = "Result for Pace Calculator test")
     public void shouldBeToCalculateThePace() {
         loginPage
                 .open()
@@ -18,7 +18,7 @@ public class PaceCalculatorTest extends BaseTest {
                 .testShouldBeOutputResults();
     }
 
-    @Test
+    @Test(description = "Error entering values for Pace Calculator test")
     public void errorEnteringValues () {
         loginPage
                 .open()

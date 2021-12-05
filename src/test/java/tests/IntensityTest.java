@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class IntensityTest extends BaseTest {
 
-    @Test
+    @Test(description = "Result for Intensity test")
     public void shouldBeToCalculateTheIntensity() {
         loginPage
                 .open()
@@ -18,7 +18,7 @@ public class IntensityTest extends BaseTest {
                 .testShouldBeOutputResults();
     }
 
-    @Test
+    @Test(description = "Error entering values for Intensity test")
     public void errorEnteringValues() {
         loginPage
                 .open()
@@ -27,7 +27,7 @@ public class IntensityTest extends BaseTest {
                 .openWorkoutCalculators()
                 .openChapterIntensity()
                 .select()
-                .eventTime("1", "44", "30")
+                .eventTime("1", "", "30")
                 .intensitySaveButton()
                 .validateErrorText("Please fix the following errors:");
     }

@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class CaloricNeedsTest extends BaseTest {
 
-    @Test
+    @Test(description = "Result for Caloric Needs test")
     public void shouldBeToCalculateTheCaloriesOfAMan() {
         loginPage
                 .open()
@@ -20,7 +20,7 @@ public class CaloricNeedsTest extends BaseTest {
                 .testShouldBeOutputResults();
     }
 
-    @Test
+    @Test(description = "Error entering values for CaloricNeeds test")
     public void errorEnteringValues() {
         loginPage
                 .open()

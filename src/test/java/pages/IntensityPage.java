@@ -50,7 +50,6 @@ public class IntensityPage {
 
     public IntensityPage intensitySaveButton() {
         $x(CALCULATE_PACES_INTENSITY_BUTTON).click();
-        switchTo().defaultContent();
         return this;
     }
 

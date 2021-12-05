@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class McMillanTest extends BaseTest {
 
-    @Test
+    @Test(description = "Result for McMillan test")
     public void shouldBeToCalculateTheMcMillan() {
         loginPage
                 .open()
@@ -20,7 +20,7 @@ public class McMillanTest extends BaseTest {
                 .testShouldBeOutputResults();
     }
 
-    @Test
+    @Test(enabled = false, description = "Error entering values for McMillan test")
     public void errorEnteringValues() {
         loginPage
                 .open()
@@ -29,7 +29,7 @@ public class McMillanTest extends BaseTest {
                 .openWorkoutCalculators()
                 .openChapterMcMillan()
                 .indicateInEstimatedRunDistance()
-                .indicateEstimatedTime("1", "27", "15")
+                .indicateEstimatedTime("", "", "")
                 .indicateInRunDistanceOptional()
                 .indicateTimeOptional("2", "13", "55")
                 .mcMillanSaveButton()

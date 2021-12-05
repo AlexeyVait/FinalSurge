@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class PalladinoTest extends BaseTest {
 
-    @Test
+    @Test (description = "Result for Palladino test")
     public void shouldBeToCalculateThePalladino() {
         loginPage
                 .open()
@@ -33,7 +33,7 @@ public class PalladinoTest extends BaseTest {
                 .testShouldBeOutputEstimateResultsThird();
     }
 
-    @Test
+    @Test(description = "Error entering values for Palladino test")
     public void errorEnteringValuesPaceCalculator() {
         loginPage
                 .open()
@@ -44,21 +44,10 @@ public class PalladinoTest extends BaseTest {
                 .criticalPower("")
                 .reserveWorkCapacity("20")
                 .pacesSaveButton()
-                .shortTest("5", "22")
-                .shortTestAvgPower("55")
-                .longTest("7", "33")
-                .longTestAvgPower("44")
-                .resultsSaveButtonOne()
-                .raceTimeOne("2", "24", "39")
-                .raceAvgPowerOne("42")
-                .resultsSaveButtonTwo()
-                .raceTimeTwo("8", "30")
-                .raceAvgPowerTwo("47")
-                .resultsSaveButtonFree()
                 .validateErrorTextPaceCalculator("Please fix the following errors:");
     }
 
-    @Test
+    @Test(description = "Error entering values for Palladino in first test")
     public void errorEnteringValuesResultFirst() {
         loginPage
                 .open()
@@ -66,24 +55,15 @@ public class PalladinoTest extends BaseTest {
         palladinoPage
                 .openWorkoutCalculators()
                 .openChapterPalladino()
-                .criticalPower("115")
-                .reserveWorkCapacity("20")
-                .pacesSaveButton()
                 .shortTest("5", "22")
                 .shortTestAvgPower("")
                 .longTest("7", "33")
                 .longTestAvgPower("44")
                 .resultsSaveButtonOne()
-                .raceTimeOne("2", "24", "39")
-                .raceAvgPowerOne("42")
-                .resultsSaveButtonTwo()
-                .raceTimeTwo("8", "30")
-                .raceAvgPowerTwo("47")
-                .resultsSaveButtonFree()
                 .validateErrorTextFirst("Please fix the following errors:");
     }
 
-    @Test
+    @Test(description = "Error entering values for Palladino in second test")
     public void errorEnteringValuesResultSecond() {
         loginPage
                 .open()
@@ -91,24 +71,13 @@ public class PalladinoTest extends BaseTest {
         palladinoPage
                 .openWorkoutCalculators()
                 .openChapterPalladino()
-                .criticalPower("115")
-                .reserveWorkCapacity("20")
-                .pacesSaveButton()
-                .shortTest("5", "22")
-                .shortTestAvgPower("55")
-                .longTest("7", "33")
-                .longTestAvgPower("44")
-                .resultsSaveButtonOne()
                 .raceTimeOne("2", "24", "39")
                 .raceAvgPowerOne("")
                 .resultsSaveButtonTwo()
-                .raceTimeTwo("8", "30")
-                .raceAvgPowerTwo("47")
-                .resultsSaveButtonFree()
                 .validateErrorTextSecond("Please fix the following errors:");
     }
 
-    @Test
+    @Test(enabled = false, description = "Error entering values for Palladino in third test")
     public void errorEnteringValuesResultThird() {
         loginPage
                 .open()
@@ -116,19 +85,8 @@ public class PalladinoTest extends BaseTest {
         palladinoPage
                 .openWorkoutCalculators()
                 .openChapterPalladino()
-                .criticalPower("115")
-                .reserveWorkCapacity("20")
-                .pacesSaveButton()
-                .shortTest("5", "22")
-                .shortTestAvgPower("55")
-                .longTest("7", "33")
-                .longTestAvgPower("44")
-                .resultsSaveButtonOne()
-                .raceTimeOne("2", "24", "39")
-                .raceAvgPowerOne("42")
-                .resultsSaveButtonTwo()
-                .raceTimeTwo("", "")
-                .raceAvgPowerTwo("47")
+                .raceTimeTwo("12", "43")
+                .raceAvgPowerTwo("")
                 .resultsSaveButtonFree()
                 .validateErrorTextThird("Please fix the following errors:");
     }

@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class HansonsTest extends BaseTest {
 
-    @Test
+    @Test(description = "Result for Hansons test")
     public void shouldBeToCalculateTheHansons() {
         loginPage
                 .open()
@@ -19,7 +19,7 @@ public class HansonsTest extends BaseTest {
                 .testShouldBeOutputResults();
     }
 
-    @Test
+    @Test(description = "Error entering values for Hansons test")
     public void errorEnteringValues() {
         loginPage
                 .open()

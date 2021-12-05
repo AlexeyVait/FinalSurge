@@ -9,7 +9,7 @@ public class PaceCalculatorPage {
     //Калькулятор темпа
     public static final String CALORIC_NEEDS_BUTTON_1 = "//li//a[@href='#']//i[@class='icsw16-calculator']";
     //public static final String PACE_CALCULATORS_BUTTON = "//button[@class='btn btn-small btn-inverse disabled']";
-    public static final String PACE_CALCULATORS_BUTTON = "//div[@style='width: 475px;']";
+    public static final String PACE_CALCULATORS_BUTTON = "//a[@href='https://log.finalsurge.com/PaceCalc.cshtml?c=1&ssl=1']";
     public static final String DISTANCE = "//input[@class='span3 inline']";
     public static final String DISTANCE_KM = "//select[@id='DistType'][@class='span3']//option[@value='km']";
     public static final String DISTANCE_3KM = "//select[@id='RaceDist']//option[@value='3k']";
@@ -25,7 +25,7 @@ public class PaceCalculatorPage {
     public static final String TIME_MM = "//input[@id='TimeMM']";
     public static final String TIME_SS = "//input[@id='TimeSS']";
     public static final String CALCULATOR_PACES_BUTTON = "//input[@id='saveButtonSettings'][@value='Calculate Paces']";
-    public static final String ERROR = "//a[@data-dismiss='alert']";
+    public static final String ERROR = "//div[@class='alert alert-error']";
     public static final String RESULT = "//i[@class='splashy-help pop-over'][@data-content='These are common splits based off the pace calculated above.']";
 
     public PaceCalculatorPage openOtherCalculators() {
@@ -68,7 +68,6 @@ public class PaceCalculatorPage {
     }
 
     public String getErrorText () {
-        switchTo().defaultContent();
         return $x(ERROR).getText();
     }
 

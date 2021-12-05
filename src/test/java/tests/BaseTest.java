@@ -13,7 +13,6 @@ public class BaseTest {
 
     CalendarPage calendarPage;
     LoginPage loginPage;
-    SettingsPage settingsPage;
     CaloricNeedsPage caloricNeedsPage;
     PaceCalculatorPage pacecalculatoPage;
     HansonsPage hansonsPage;
@@ -38,7 +37,6 @@ public class BaseTest {
 
 
         loginPage = new LoginPage();
-        settingsPage = new SettingsPage();
         caloricNeedsPage = new CaloricNeedsPage();
         pacecalculatoPage = new PaceCalculatorPage();
         hansonsPage = new HansonsPage();
@@ -50,8 +48,8 @@ public class BaseTest {
 
     }
 
-//    @AfterMethod(alwaysRun = true)
-//    public void close() {
-//        Selenide.closeWebDriver();
-//    }
+    @AfterMethod(alwaysRun = true)
+    public void close() {
+        Selenide.closeWebDriver();
+    }
 }

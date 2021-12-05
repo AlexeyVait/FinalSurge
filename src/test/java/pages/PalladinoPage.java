@@ -31,7 +31,7 @@ public class PalladinoPage {
     //Short Test (Avg. Power) and Long Test (Avg. Power): min=20, max=800 (time 01-09 sek. ERROR)
     //Race Avg Power (W): min=20, max=800;
     //Race Avg Power (W): min=20, max=800;
-    public static final String ERROR = "#IntensityCalciFrame"; //Value was either too large or too small for a Decimal (1-9)
+    public static final String ERROR = "//div[@class='alert alert-error']"; //Value was either too large or too small for a Decimal (1-9)
     public static final String RESULT_PACE_CALCULATOR = "//table[@class='table table-condensed table-hover table-striped']";
 
     public PalladinoPage openWorkoutCalculators() {
@@ -155,21 +155,18 @@ public class PalladinoPage {
 
     public PalladinoPage validateErrorTextPaceCalculator (String errorText) {
         Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
-        switchTo().defaultContent();
         return this;
     }
 
 
     public PalladinoPage validateErrorTextFirst (String errorText) {
         Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
-        switchTo().defaultContent();
         return this;
     }
 
 
     public PalladinoPage validateErrorTextSecond (String errorText) {
         Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
-        switchTo().defaultContent();
         return this;
     }
 
