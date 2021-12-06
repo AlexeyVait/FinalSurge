@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FinalSurge Test suite" parallel="tests" thread-count="2">
+
+    <test name="Login Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Base Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.BaseTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Calendar Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.CalendarTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Caloric Needs Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.CaloricNeedsTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Hansons Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.HansonsTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Intensity Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.IntensityTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="McMillan Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.McMillanTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Pace Calculator Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.PaceCalculatorTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Palladino Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.PalladinoTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Tinman Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.TinmanTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite>
