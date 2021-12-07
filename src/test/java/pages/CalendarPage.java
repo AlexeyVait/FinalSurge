@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class CalendarPage {
@@ -243,7 +244,7 @@ public class CalendarPage {
     public static final String DELETE = "//a[@class='quick-delete']";
         public static final String DELETE_OK = "//a[@data-handler='1']";
 
-
+    WebDriver driver;
 
     public CalendarPage selectionDay() {
         $x(PLUS_CALENDAR).submit();
@@ -414,8 +415,8 @@ public class CalendarPage {
         return this;
     }
 
-    public CalendarPage updateTime(String HH, String MM, String SS) {
-        $x(DURATION_VIEW).sendKeys(HH, MM, SS);
+    public CalendarPage updateTime() {
+        $x(DURATION_VIEW).click();
         return this;
     }
 
@@ -459,7 +460,7 @@ public class CalendarPage {
         return this;
     }
 
-    public CalendarPage updatePogoda() {//
+    public CalendarPage updatePogoda() {
         $x(POGODA).click();
         return this;
     }
@@ -563,7 +564,5 @@ public class CalendarPage {
         $x(DELETE_OK).click();
         return this;
     }
-
-
 
 }

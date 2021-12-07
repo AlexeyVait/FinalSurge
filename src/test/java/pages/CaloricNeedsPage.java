@@ -81,7 +81,9 @@ public class CaloricNeedsPage {
     }
 
     public CaloricNeedsPage validateErrorText (String errorText) {
-        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Please enter an Integer value for Age.");
         switchTo().defaultContent();
         return this;
     }

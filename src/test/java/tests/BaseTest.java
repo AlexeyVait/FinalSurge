@@ -2,12 +2,16 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import pages.*;
 import utils.PropertyReader;
 import org.testng.annotations.BeforeMethod;
 
+@Listeners(tests.base.TestListener.class)
 
 public class BaseTest {
 
@@ -20,12 +24,14 @@ public class BaseTest {
     McMillanPage mcmillanPage;
     PalladinoPage palladinoPage;
     TinmanPage tinmanPage;
-    
+    WebDriver driver;
+
     public String user;
     public String password;
 
     @BeforeMethod(alwaysRun = true)
-    public void setup(@Optional("chrome") String browser) {
+    public void setup(@Optional("chrome") String browser, ITestContext context) {
+        context.setAttribute("driver", driver);
         Configuration.baseUrl = PropertyReader.getProperty("finalsurge.url");
         user = PropertyReader.getProperty("finalsurge.user");
         password = PropertyReader.getProperty("finalsurge.pass");

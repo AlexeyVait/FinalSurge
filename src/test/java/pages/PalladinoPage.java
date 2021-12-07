@@ -154,19 +154,25 @@ public class PalladinoPage {
     }
 
     public PalladinoPage validateErrorTextPaceCalculator (String errorText) {
-        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Please enter a value for Critical Power.");
         return this;
     }
 
 
     public PalladinoPage validateErrorTextFirst (String errorText) {
-        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Please enter a value for Average Power (Short).");
         return this;
     }
 
 
     public PalladinoPage validateErrorTextSecond (String errorText) {
-        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Please enter a value for Race Avg Power (W).");
         return this;
     }
 

@@ -33,6 +33,8 @@ public class CaloricNeedsTest extends BaseTest {
                 .genderSelection()
                 .indicateInRunDistance("10")
                 .caloricSaveButton()
-                .validateErrorText("Please fix the following errors:");
+                .validateErrorText("×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter an Integer value for Age.");
     }
 }

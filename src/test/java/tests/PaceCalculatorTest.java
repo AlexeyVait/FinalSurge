@@ -29,6 +29,8 @@ public class PaceCalculatorTest extends BaseTest {
                 .indicateInRunDistance("12")
                 .indicateTime("1", "", "35")
                 .paceSaveButton()
-                .validateErrorText("Please fix the following errors:");
+                .validateErrorText("×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter an Integer value for Minutes.");
     }
 }

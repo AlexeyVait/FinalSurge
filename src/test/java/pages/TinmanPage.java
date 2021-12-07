@@ -2,6 +2,7 @@ package pages;
 
 
 import org.testng.Assert;
+import utils.AllureUtils;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;

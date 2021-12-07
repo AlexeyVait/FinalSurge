@@ -44,7 +44,9 @@ public class PalladinoTest extends BaseTest {
                 .criticalPower("")
                 .reserveWorkCapacity("20")
                 .pacesSaveButton()
-                .validateErrorTextPaceCalculator("Please fix the following errors:");
+                .validateErrorTextPaceCalculator("×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter a value for Critical Power.");
     }
 
     @Test(description = "Error entering values for Palladino in first test")
@@ -60,7 +62,9 @@ public class PalladinoTest extends BaseTest {
                 .longTest("7", "33")
                 .longTestAvgPower("44")
                 .resultsSaveButtonOne()
-                .validateErrorTextFirst("Please fix the following errors:");
+                .validateErrorTextFirst("×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter a value for Average Power (Short).");
     }
 
     @Test(description = "Error entering values for Palladino in second test")
@@ -74,7 +78,9 @@ public class PalladinoTest extends BaseTest {
                 .raceTimeOne("2", "24", "39")
                 .raceAvgPowerOne("")
                 .resultsSaveButtonTwo()
-                .validateErrorTextSecond("Please fix the following errors:");
+                .validateErrorTextSecond("×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter a value for Race Avg Power (W).");
     }
 
     @Test(enabled = false, description = "Error entering values for Palladino in third test")
@@ -88,6 +94,6 @@ public class PalladinoTest extends BaseTest {
                 .raceTimeTwo("12", "43")
                 .raceAvgPowerTwo("")
                 .resultsSaveButtonFree()
-                .validateErrorTextThird("Please fix the following errors:");
+                .validateErrorTextThird("Please enter a value for Race Avg Power (W).");
     }
 }

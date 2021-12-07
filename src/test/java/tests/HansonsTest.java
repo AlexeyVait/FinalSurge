@@ -31,6 +31,8 @@ public class HansonsTest extends BaseTest {
                 .indicateTime("1", "", "54")
                 .dataAdjustments("38", "40", "18")
                 .hansonSaveButton()
-                .validateErrorText("Please fix the following errors:");
+                .validateErrorText("×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter an Integer value for Minutes.");
     }
 }

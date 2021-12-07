@@ -29,6 +29,8 @@ public class IntensityTest extends BaseTest {
                 .select()
                 .eventTime("1", "", "30")
                 .intensitySaveButton()
-                .validateErrorText("Please fix the following errors:");
+                .validateErrorText("×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter an Integer value for Minutes.");
     }
 }

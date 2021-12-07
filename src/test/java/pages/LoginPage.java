@@ -1,13 +1,14 @@
 package pages;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Step;
 import org.testng.Assert;
+import utils.AllureUtils;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 import static org.testng.Assert.assertEquals;
 
 public class LoginPage {
@@ -30,7 +31,7 @@ public class LoginPage {
         return this;
     }
 
-
+    @Step("Login using credentials: '{user}' and '{pass}'")
     public LoginPage login(String user, String pass) {
         $(USERNAME_CSS).sendKeys(user);
         $(PASSWORD_CSS).sendKeys(pass);
