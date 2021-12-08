@@ -5,9 +5,7 @@ import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Optional;
 import pages.*;
-import steps.CalendarSteps;
-import steps.CaloricNeedsSteps;
-import steps.LoginSteps;
+import steps.*;
 import utils.PropertyReader;
 import org.testng.annotations.BeforeMethod;
 
@@ -27,6 +25,12 @@ public class BaseTest {
     public LoginSteps loginSteps;
     public CalendarSteps calendarSteps;
     public CaloricNeedsSteps caloricNeedsSteps;
+    public PaceCalculatorSteps paceCalculatorSteps;
+    public HansonsSteps hansonsSteps;
+    public IntensitySteps intensitySteps;
+    public McMillanSteps mcMillanSteps;
+    public PalladinoSteps palladinoSteps;
+    public TinmanSteps tinmanSteps;
 
     public String user;
     public String password;
@@ -55,6 +59,12 @@ public class BaseTest {
         loginSteps = new LoginSteps();
         calendarSteps = new CalendarSteps();
         caloricNeedsSteps = new CaloricNeedsSteps();
+        paceCalculatorSteps = new PaceCalculatorSteps();
+        hansonsSteps = new HansonsSteps();
+        intensitySteps = new IntensitySteps();
+        mcMillanSteps = new McMillanSteps();
+        palladinoSteps = new PalladinoSteps();
+        tinmanSteps = new TinmanSteps();
 
 
     }
