@@ -8,6 +8,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import pages.*;
+import steps.CalendarSteps;
+import steps.LoginSteps;
 import utils.PropertyReader;
 import org.testng.annotations.BeforeMethod;
 
@@ -25,6 +27,9 @@ public class BaseTest {
     PalladinoPage palladinoPage;
     TinmanPage tinmanPage;
     WebDriver driver;
+
+    public LoginSteps loginSteps;
+    public CalendarSteps calendarSteps;
 
     public String user;
     public String password;
@@ -51,6 +56,9 @@ public class BaseTest {
         palladinoPage = new PalladinoPage();
         tinmanPage = new TinmanPage();
         calendarPage = new CalendarPage();
+        loginSteps = new LoginSteps();
+        calendarSteps = new CalendarSteps();
+
 
     }
 

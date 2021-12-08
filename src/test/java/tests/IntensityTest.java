@@ -6,9 +6,8 @@ public class IntensityTest extends BaseTest {
 
     @Test(description = "Result for Intensity test")
     public void shouldBeToCalculateTheIntensity() {
-        loginPage
-                .open()
-                .login(user, password);
+        loginSteps
+                .correctLogin(user, password);
         intensityPage
                 .openWorkoutCalculators()
                 .openChapterIntensity()
