@@ -1,10 +1,12 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class PaceCalculatorTest extends BaseTest {
 
     @Test(description = "Result for Pace Calculator test")
+    @Description()
     public void shouldBeToCalculateThePace() {
         loginPage
                 .open()
@@ -19,6 +21,7 @@ public class PaceCalculatorTest extends BaseTest {
     }
 
     @Test(description = "Error entering values for Pace Calculator test")
+    @Description()
     public void errorEnteringValues () {
         loginPage
                 .open()

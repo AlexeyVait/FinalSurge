@@ -1,10 +1,12 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class McMillanTest extends BaseTest {
 
     @Test(description = "Result for McMillan test")
+    @Description()
     public void shouldBeToCalculateTheMcMillan() {
         loginPage
                 .open()
@@ -21,6 +23,7 @@ public class McMillanTest extends BaseTest {
     }
 
     @Test(enabled = false, description = "Error entering values for McMillan test")
+    @Description()
     public void errorEnteringValues() {
         loginPage
                 .open()

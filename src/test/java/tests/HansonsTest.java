@@ -1,10 +1,12 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class HansonsTest extends BaseTest {
 
     @Test(description = "Result for Hansons test")
+    @Description()
     public void shouldBeToCalculateTheHansons() {
         loginPage
                 .open()
@@ -20,6 +22,7 @@ public class HansonsTest extends BaseTest {
     }
 
     @Test(description = "Error entering values for Hansons test")
+    @Description()
     public void errorEnteringValues() {
         loginPage
                 .open()

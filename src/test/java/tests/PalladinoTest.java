@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 
@@ -50,6 +51,7 @@ public class PalladinoTest extends BaseTest {
     }
 
     @Test(description = "Error entering values for Palladino in first test")
+    @Description()
     public void errorEnteringValuesResultFirst() {
         loginPage
                 .open()
@@ -68,6 +70,7 @@ public class PalladinoTest extends BaseTest {
     }
 
     @Test(description = "Error entering values for Palladino in second test")
+    @Description()
     public void errorEnteringValuesResultSecond() {
         loginPage
                 .open()

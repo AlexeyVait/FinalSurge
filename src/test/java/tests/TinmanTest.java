@@ -1,10 +1,12 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class TinmanTest extends BaseTest{
 
     @Test(description = "Result for Tinman test")
+    @Description()
     public void shouldBeToCalculateTheTinman() {
         loginPage
                 .open()
@@ -20,6 +22,7 @@ public class TinmanTest extends BaseTest{
     }
 
     @Test(enabled = false, description = "Error entering values for Tinman test")
+    @Description()
     public void errorEnteringValues() {
         loginPage
                 .open()

@@ -12,6 +12,7 @@ public class LoginSteps {
     LoginPage loginPage;
     CalendarPage calendarPage;
 
+
     public LoginSteps() {
         loginPage = new LoginPage();
         calendarPage = new CalendarPage();
@@ -26,24 +27,24 @@ public class LoginSteps {
         return this;
     }
 
-    @Step("Authorize with invalid credentials: {username}, {password}")
-    public LoginPage invalidLogin(String user, String password, String errorText) {
-        log.info("Authorize with invalid credentials: {}, {}", user, password);
-        loginPage
-                .open()
-                .error(user, password)
-                .getError()
-                .validateErrorText(errorText);
-        return loginPage;
-    }
-
-    @Step("Authorize with valid credentials: {username}, {password}")
-    public CalendarPage login(String user, String password) {
-        log.info("Authorize with valid credentials: {}, {}", user, password);
-        loginPage
-                .open()
-                .isSelectionDay(user, password)
-                .selectionDay();
-        return calendarPage;
-    }
+//    @Step("Authorize with invalid credentials: {username}, {password}")
+//    public LoginPage invalidLogin(String user, String password, String errorText) {
+//        log.info("Authorize with invalid credentials: {}, {}", user, password);
+//        loginPage
+//                .open()
+//                .error(user, password)
+//                .getError()
+//                .validateErrorText(errorText);
+//        return loginPage;
+//    }
+//
+//    @Step("Authorize with valid credentials: {username}, {password}")
+//    public CalendarPage login(String user, String password) {
+//        log.info("Authorize with valid credentials: {}, {}", user, password);
+//        loginPage
+//                .open()
+//                .isSelectionDay(user, password)
+//                .selectionDay();
+//        return calendarPage;
+//    }
 }

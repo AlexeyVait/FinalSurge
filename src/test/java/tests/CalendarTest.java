@@ -1,13 +1,15 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class CalendarTest extends BaseTest {
 
     @Test
+    @Description()
     public void calenarTestDobavlenie() {
         loginSteps
-                .login(user, password);
+                .correctLogin(user, password);
         calendarSteps
                 .addingAWorkout("Hill running","Running workout","13",
                         "1","20","35","17","1","55","22",
