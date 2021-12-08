@@ -18,7 +18,7 @@ public class BaseTest {
     PaceCalculatorPage pacecalculatoPage;
     HansonsPage hansonsPage;
     IntensityPage intensityPage;
-    McMillanPage mcmillanPage;
+    McMillanPage mcMillanPage;
     PalladinoPage palladinoPage;
     TinmanPage tinmanPage;
 
@@ -52,7 +52,7 @@ public class BaseTest {
         pacecalculatoPage = new PaceCalculatorPage();
         hansonsPage = new HansonsPage();
         intensityPage = new IntensityPage();
-        mcmillanPage = new McMillanPage();
+        mcMillanPage = new McMillanPage();
         palladinoPage = new PalladinoPage();
         tinmanPage = new TinmanPage();
         calendarPage = new CalendarPage();

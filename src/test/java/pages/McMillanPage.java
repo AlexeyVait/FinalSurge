@@ -104,10 +104,10 @@ public class McMillanPage {
         return this;
     }
 
-    public McMillanPage indicateEstimatedTime(String hh, String mm, String ss) {
-        $x(HH_MC_MILLAN).sendKeys(hh);
-        $x(MM_MC_MILLAN).sendKeys(mm);
-        $x(SS_MC_MILLAN).sendKeys(ss);
+    public McMillanPage indicateEstimatedTime(String hh_time, String mm_time, String ss_time) {
+        $x(HH_MC_MILLAN).sendKeys(hh_time);
+        $x(MM_MC_MILLAN).sendKeys(mm_time);
+        $x(SS_MC_MILLAN).sendKeys(ss_time);
         return this;
     }
 
@@ -116,10 +116,11 @@ public class McMillanPage {
         return this;
     }
 
-    public McMillanPage indicateTimeOptional(String hh, String mm, String ss) {
-        $x(SGD_HH_MC_MILLAN).sendKeys(hh);
-        $x(SGD_MM_MC_MILLAN).sendKeys(mm);
-        $x(SGD_SS_MC_MILLAN).sendKeys(ss);
+    public McMillanPage indicateTimeOptional(String hh_optional, String mm_optional,
+                                             String ss_optional) {
+        $x(SGD_HH_MC_MILLAN).sendKeys(hh_optional);
+        $x(SGD_MM_MC_MILLAN).sendKeys(mm_optional);
+        $x(SGD_SS_MC_MILLAN).sendKeys(ss_optional);
         return this;
     }
 

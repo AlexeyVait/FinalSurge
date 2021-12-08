@@ -12,14 +12,27 @@ public class IntensitySteps {
     }
 
     @Step("Calculation intensity an result")
-    public IntensitySteps resultIntensity(String ) {
+    public IntensitySteps resultIntensity(String hh, String mm, String ss) {
         intensityPage
                 .openWorkoutCalculators()
                 .openChapterIntensity()
                 .select()
-                .eventTime("1", "44", "30")
+                .eventTime(hh, mm, ss)
                 .intensitySaveButton()
                 .testShouldBeOutputResults();
+        return this;
+    }
+
+    @Step("Calculation intensity an result")
+    public IntensitySteps errorResult(String hh, String mm, String ss,
+                                      String errorText) {
+        intensityPage
+                .openWorkoutCalculators()
+                .openChapterIntensity()
+                .select()
+                .eventTime(hh, mm, ss)
+                .intensitySaveButton()
+                .validateErrorText(errorText);
         return this;
     }
 }
