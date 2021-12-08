@@ -3,12 +3,15 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import pages.*;
 import steps.*;
+import tests.base.TestListener;
 import utils.PropertyReader;
 import org.testng.annotations.BeforeMethod;
 
+@Listeners(TestListener.class)
 
 public class BaseTest {
 
