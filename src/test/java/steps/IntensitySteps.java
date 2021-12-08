@@ -12,7 +12,7 @@ public class IntensitySteps {
     }
 
     @Step("Calculation intensity an result")
-    public IntensitySteps resultIntensity(String ) {
+    public IntensitySteps resultIntensity(String hh, String mm, String ss ) {
         intensityPage
                 .openWorkoutCalculators()
                 .openChapterIntensity()
