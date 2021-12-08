@@ -39,10 +39,18 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage erorr(String user, String pass) {
-        $(USERNAME_CSS).sendKeys(user);
-        $(PASSWORD_CSS).sendKeys(pass);
-        $(LOGIN_SUBMIT_CSS).submit();
+    public CalendarPage isSelectionDay(String user, String password) {
+        login(user, password);
+        return new CalendarPage().selectionDay();
+    }
+
+    public LoginPage error(String user, String password) {
+        login(user, password);
+        return this;
+    }
+
+    public LoginPage getError() {
+        $x(errorTextLocator_CSS).shouldBe(visible);
         return this;
     }
 
