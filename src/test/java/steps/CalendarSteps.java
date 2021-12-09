@@ -72,6 +72,7 @@ public class CalendarSteps {
     public CalendarSteps weather(String degrees, String moisture) {
         calendarPage
                 .updateGalka()
+                .scroll()
                 .updatePogoda()
                 .updatePogodaGalka()
                 .updateGradys(degrees)

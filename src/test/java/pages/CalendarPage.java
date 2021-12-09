@@ -184,6 +184,7 @@ public class CalendarPage {
         public static final String DISTANCE_SELECT_KM_OHLACHDENIA = "//select[@id='CDDistType']//option[@value='km']";
         public static final String TIME_OHLACHDENIA = "//input[@id='CDDuration']";
 
+        public static final String SCROLL = "//a[@class='scrollup']";
         public static final String POGODA = "//div[@data-label='weather']";
         public static final String POGODA_2_ = "//input[@id='PartSunny']";
         public static final String GRADYS = "//input[@id='Temp']";
@@ -456,6 +457,11 @@ public class CalendarPage {
 
     public CalendarPage updateGalka() {
         $x(SAVE_TO_LIBRARY_GALKA_VIEW).click();
+        return this;
+    }
+
+    public CalendarPage scroll() {
+        $x(SCROLL).click();
         return this;
     }
 
