@@ -57,29 +57,28 @@ public class PalladinoPage {
 
     public PalladinoPage pacesSaveButton() {
         $x(CALCULATE_PACES_PALLADINO_BUTTON).click();
-       // switchTo().defaultContent();
         return this;
     }
 
-    public PalladinoPage shortTest(String mi, String sek) {
-        $x(SHORT_TEST_MM_PALLADINO).sendKeys(mi);
-        $x(SHORT_TEST_SS_PALLADINO).sendKeys(sek);
+    public PalladinoPage shortTest(String short_min, String short_sek) {
+        $x(SHORT_TEST_MM_PALLADINO).sendKeys(short_min);
+        $x(SHORT_TEST_SS_PALLADINO).sendKeys(short_sek);
         return this;
     }
 
-    public PalladinoPage shortTestAvgPower(String sh) {
-        $x(SHORT_TEST_PALLADINO).sendKeys(sh);
+    public PalladinoPage shortTestAvgPower(String short_sh) {
+        $x(SHORT_TEST_PALLADINO).sendKeys(short_sh);
         return this;
     }
 
-    public PalladinoPage longTest(String mi, String sek) {
-        $x(LONG_TEST_MM_PALLADINO).sendKeys(mi);
-        $x(LONG_TEST_SS_PALLADINO).sendKeys(sek);
+    public PalladinoPage longTest(String long_min, String long_sek) {
+        $x(LONG_TEST_MM_PALLADINO).sendKeys(long_min);
+        $x(LONG_TEST_SS_PALLADINO).sendKeys(long_sek);
         return this;
     }
 
-    public PalladinoPage longTestAvgPower(String sh) {
-        $x(LONG_TEST_PALLADINO).sendKeys(sh);
+    public PalladinoPage longTestAvgPower(String long_sh) {
+        $x(LONG_TEST_PALLADINO).sendKeys(long_sh);
         return this;
     }
 
@@ -88,9 +87,9 @@ public class PalladinoPage {
         return this;
     }
 
-    public PalladinoPage raceTimeOne(String hh, String mi, String sek) {
+    public PalladinoPage raceTimeOne(String hh, String min, String sek) {
         $x(RACE_TIME_HH_PALLADINO).sendKeys(hh);
-        $x(RACE_TIME_MM_PALLADINO).sendKeys(mi);
+        $x(RACE_TIME_MM_PALLADINO).sendKeys(min);
         $x(RACE_TIME_SS_PALLADINO).sendKeys(sek);
         return this;
     }
@@ -105,8 +104,8 @@ public class PalladinoPage {
         return this;
     }
 
-    public PalladinoPage raceTimeTwo(String mi, String sek) {
-        $x(RACE2_TIME_MM_PALLADINO).sendKeys(mi);
+    public PalladinoPage raceTimeTwo(String min, String sek) {
+        $x(RACE2_TIME_MM_PALLADINO).sendKeys(min);
         $x(RACE2_TIME_SS_PALLADINO).sendKeys(sek);
         return this;
     }
@@ -178,7 +177,9 @@ public class PalladinoPage {
 
 
     public PalladinoPage validateErrorTextThird (String errorText) {
-        Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Please enter a value for Race Avg Power (W).");
         switchTo().defaultContent();
         return this;
     }

@@ -1,12 +1,10 @@
 package pages;
 
 import org.testng.Assert;
-
 import static com.codeborne.selenide.Selenide.*;
 
 public class PaceCalculatorPage {
 
-    //Калькулятор темпа
     public static final String CALORIC_NEEDS_BUTTON_1 = "//li//a[@href='#']//i[@class='icsw16-calculator']";
     //public static final String PACE_CALCULATORS_BUTTON = "//button[@class='btn btn-small btn-inverse disabled']";
     public static final String PACE_CALCULATORS_BUTTON = "//a[@href='https://log.finalsurge.com/PaceCalc.cshtml?c=1&ssl=1']";
@@ -45,9 +43,9 @@ public class PaceCalculatorPage {
         return this;
     }
 
-    public PaceCalculatorPage indicateTime(String chas, String minut, String sek) {
-        $x(TIME_HH).sendKeys(chas);
-        $x(TIME_MM).sendKeys(minut);
+    public PaceCalculatorPage indicateTime(String hh, String min, String sek) {
+        $x(TIME_HH).sendKeys(hh);
+        $x(TIME_MM).sendKeys(min);
         $x(TIME_SS).sendKeys(sek);
         return this;
     }

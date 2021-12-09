@@ -23,7 +23,7 @@ public class IntensitySteps {
         return this;
     }
 
-    @Step("Calculation intensity an result")
+    @Step("Error data intensity an result")
     public IntensitySteps errorResult(String hh, String mm, String ss,
                                       String errorText) {
         intensityPage

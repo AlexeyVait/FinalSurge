@@ -8,44 +8,23 @@ public class PalladinoTest extends BaseTest {
 
     @Test (description = "Result for Palladino test")
     public void shouldBeToCalculateThePalladino() {
-        loginPage
-                .open()
-                .login(user, password);
-        palladinoPage
-                .openWorkoutCalculators()
-                .openChapterPalladino()
-                .criticalPower("115")
-                .reserveWorkCapacity("20")
-                .pacesSaveButton()
-                .shortTest("5", "22")
-                .shortTestAvgPower("55")
-                .longTest("7", "33")
-                .longTestAvgPower("44")
-                .resultsSaveButtonOne()
-                .raceTimeOne("2", "24", "39")
-                .raceAvgPowerOne("42")
-                .resultsSaveButtonTwo()
-                .raceTimeTwo("8", "30")
-                .raceAvgPowerTwo("47")
-                .resultsSaveButtonFree()
-                .testShouldBeOutputResultsPaceCalculator()
-                .testShouldBeOutputEstimateResultsFirst()
-                .testShouldBeOutputEstimateResultsSecond()
-                .testShouldBeOutputEstimateResultsThird();
+        loginSteps
+                .correctLogin(user, password);
+        palladinoSteps
+                .intervalPowerTargetCalculator("115", "20")
+                .cpAndRwcFromACpTest("5", "22", "55",
+                                    "7", "33", "44")
+                .cpFromRaceOrTTLessThanOrEqualToFortyMinutes("2", "24",
+                                                            "39", "42")
+                .cpFromRaceOrTTGreaterThanOrEqualToFortyMinutes("8", "30", "47");
     }
 
     @Test(description = "Error entering values for Palladino test")
     public void errorEnteringValuesPaceCalculator() {
-        loginPage
-                .open()
-                .login(user, password);
-        palladinoPage
-                .openWorkoutCalculators()
-                .openChapterPalladino()
-                .criticalPower("")
-                .reserveWorkCapacity("20")
-                .pacesSaveButton()
-                .validateErrorTextPaceCalculator("×\n" +
+        loginSteps
+                .correctLogin(user, password);
+        palladinoSteps
+                .errorIntervalPowerTargetCalculator("", "20", "×\n" +
                         "Please fix the following errors:\n" +
                         "*Please enter a value for Critical Power.");
     }
@@ -53,18 +32,11 @@ public class PalladinoTest extends BaseTest {
     @Test(description = "Error entering values for Palladino in first test")
     @Description()
     public void errorEnteringValuesResultFirst() {
-        loginPage
-                .open()
-                .login(user, password);
-        palladinoPage
-                .openWorkoutCalculators()
-                .openChapterPalladino()
-                .shortTest("5", "22")
-                .shortTestAvgPower("")
-                .longTest("7", "33")
-                .longTestAvgPower("44")
-                .resultsSaveButtonOne()
-                .validateErrorTextFirst("×\n" +
+        loginSteps
+                .correctLogin(user, password);
+        palladinoSteps
+                .errorCpAndRwcFromACpTest("5", "22", "",
+                                        "7", "33", "44","×\n" +
                         "Please fix the following errors:\n" +
                         "*Please enter a value for Average Power (Short).");
     }
@@ -72,31 +44,25 @@ public class PalladinoTest extends BaseTest {
     @Test(description = "Error entering values for Palladino in second test")
     @Description()
     public void errorEnteringValuesResultSecond() {
-        loginPage
-                .open()
-                .login(user, password);
-        palladinoPage
-                .openWorkoutCalculators()
-                .openChapterPalladino()
-                .raceTimeOne("2", "24", "39")
-                .raceAvgPowerOne("")
-                .resultsSaveButtonTwo()
-                .validateErrorTextSecond("×\n" +
+        loginSteps
+                .correctLogin(user, password);
+        palladinoSteps
+                .errorCpFromRaceOrTTLessThanOrEqualToFortyMinutes("2", "24", "39",
+                                                                "", "×\n" +
                         "Please fix the following errors:\n" +
                         "*Please enter a value for Race Avg Power (W).");
     }
 
     @Test(enabled = false, description = "Error entering values for Palladino in third test")
     public void errorEnteringValuesResultThird() {
-        loginPage
-                .open()
-                .login(user, password);
-        palladinoPage
-                .openWorkoutCalculators()
-                .openChapterPalladino()
-                .raceTimeTwo("12", "43")
-                .raceAvgPowerTwo("")
-                .resultsSaveButtonFree()
-                .validateErrorTextThird("Please enter a value for Race Avg Power (W).");
+        loginSteps
+                .correctLogin(user, password);
+        palladinoSteps
+                .errorCpFromRaceOrTTGreaterThanOrEqualToFortyMinutes("12", "43", "",
+                                                                    "×\n" +
+                        "Please fix the following errors:\n" +
+                        "*Please enter a value for Race Avg Power (W).");
     }
 }
+
+

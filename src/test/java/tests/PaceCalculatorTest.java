@@ -8,31 +8,19 @@ public class PaceCalculatorTest extends BaseTest {
     @Test(description = "Result for Pace Calculator test")
     @Description()
     public void shouldBeToCalculateThePace() {
-        loginPage
-                .open()
-                .login(user, password);
-        pacecalculatoPage
-                .openOtherCalculators()
-                .openChapterPace()
-                .indicateInRunDistance("12")
-                .indicateTime("1", "15", "35")
-                .paceSaveButton()
-                .testShouldBeOutputResults();
+        loginSteps
+                .correctLogin(user, password);
+        paceCalculatorSteps
+                .resultPaceCalculator("10", "1", "24", "35");
     }
 
     @Test(description = "Error entering values for Pace Calculator test")
     @Description()
-    public void errorEnteringValues () {
-        loginPage
-                .open()
-                .login(user, password);
-        pacecalculatoPage
-                .openOtherCalculators()
-                .openChapterPace()
-                .indicateInRunDistance("12")
-                .indicateTime("1", "", "35")
-                .paceSaveButton()
-                .validateErrorText("×\n" +
+    public void errorEnteringValues() {
+        loginSteps
+                .correctLogin(user, password);
+        paceCalculatorSteps
+                .errorResult("10", "1", "", "13", "×\n" +
                         "Please fix the following errors:\n" +
                         "*Please enter an Integer value for Minutes.");
     }
