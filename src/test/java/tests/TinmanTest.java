@@ -1,9 +1,11 @@
 package tests;
 
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class TinmanTest extends BaseTest{
+
 
     @Test(description = "Result for Tinman test")
     @Description()

@@ -1,6 +1,7 @@
 package pages;
 
 import org.testng.Assert;
+import steps.CalendarSteps;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
@@ -404,8 +405,8 @@ public class CalendarPage {
         return this;
     }
 
-    public CalendarPage updateDistance(String distance) {
-        $x(DISTANCE_VIEW).sendKeys(distance);
+    public CalendarPage updateDistance(String basic_distance) {
+        $x(DISTANCE_VIEW).sendKeys(basic_distance);
         return this;
     }
 
@@ -463,6 +464,7 @@ public class CalendarPage {
         $x(SAVE_TO_LIBRARY_GALKA_VIEW).click();
         return this;
     }
+
 
     public CalendarPage scroll() {
         $x(SCROLL).click();
@@ -578,12 +580,25 @@ public class CalendarPage {
         return  $x(ERROR).getText();
     }
 
-    public CalendarPage validateErrorText (String errorText) {
+    public CalendarPage validateErrorTextMinHH (String errorText) {
         Assert.assertEquals(getErrorText(),errorText, "×\n" +
                 "Please fix the following errors:\n" +
-                "*Please enter an Integer value for Age.");
-        switchTo().defaultContent();
+                "*Maximum Heartrate cannot be greater than 300.");
         return this;
     }
 
+    public CalendarPage validateErrorTextMaxHH (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Minimum Heartrate cannot be greater than 300.");
+        return this;
+    }
+
+    public CalendarPage validateErrorTextAvgHH (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Average Heartrate cannot be greater than 300.");
+        switchTo().defaultContent();
+        return this;
+    }
 }

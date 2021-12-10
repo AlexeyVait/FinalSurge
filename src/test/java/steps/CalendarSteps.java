@@ -12,8 +12,10 @@ public class CalendarSteps {
     }
 
     @Step("Add main workout")
-    public CalendarSteps addingAWorkout(String name, String description, String distance, String HH, String MM,
-                                        String SS, String distancePlan, String hh, String mm, String ss,
+    public CalendarSteps addingAWorkout(String name, String description,
+                                        String distance, String HH, String MM,
+                                        String SS, String distancePlan,
+                                        String hh, String mm, String ss,
                                         String notes, String aPlace, String group) {
         calendarPage
                 .selectionDay()
@@ -48,13 +50,13 @@ public class CalendarSteps {
     }
 
     @Step("Open the settings of the added workout and update the data")
-    public CalendarSteps updatingThisWorkout(String distance, String min, String sred,
+    public CalendarSteps updatingThisWorkout(String basic_distance, String min, String sred,
                                              String max, String calories) {
         calendarPage
                 .openCalendar()
                 .openView()
                 .openRedactirovanie()
-                .updateDistance(distance)
+                .updateDistance(basic_distance)
                 .selectUpdateRasstoianie()
                 .selectUpdateKmRasstoianie()
                 .updateTime()
@@ -68,11 +70,6 @@ public class CalendarSteps {
         return this;
     }
 
-//    @Step("Error")
-//    public CalendarSteps error(){
-//        calendarPage
-//                .validateErrorText(error());
-//    }
 
     @Step("Open and update weather conditions during training")
     public CalendarSteps weather(String degrees, String moisture) {
@@ -120,10 +117,34 @@ public class CalendarSteps {
     }
 
     @Step("Deleting an added workout")
-    public CalendarPage deleteWorkout() {
+    public CalendarSteps deleteWorkout() {
         calendarPage
                 .deleteResultTrenirovki()
                 .deleteResultTrenirovkiOK();
-        return calendarPage;
+        return this;
+    }
+
+    @Step()
+    public CalendarSteps errorForMinHR(String errorText) {
+        calendarPage
+                .updateTrenirovki()
+                .validateErrorTextMinHH(errorText);
+        return this;
+    }
+
+    @Step()
+    public CalendarSteps errorForMaxHR(String errorText) {
+        calendarPage
+                .updateTrenirovki()
+                .validateErrorTextMaxHH(errorText);
+        return this;
+    }
+
+    @Step()
+    public CalendarSteps errorForAvgHR(String errorText) {
+        calendarPage
+                .updateTrenirovki()
+                .validateErrorTextAvgHH(errorText);
+        return this;
     }
 }

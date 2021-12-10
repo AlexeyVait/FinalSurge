@@ -51,15 +51,15 @@ public class HansonsTest extends BaseTest {
                                 "*Humidity Adjustment cannot be greater than 100.00.");
     }
 
-//    @Test(description = "Error entering values for Hansons test")
-//    @Description("")
-//    public void errorEnteringValuesMaxDistance() {
-//        loginSteps
-//                .correctLogin(user, password);
-//        hansonsSteps
-//                .errorResult("43", "1", "22",
-//                        "54", "38", "151", "18",
-//                        "×\n" + "Please fix the following errors:\n" +
-//                                "*You cannot enter a race greater than a marathon.");
-//    }
+    @Test(description = "Error entering values for Hansons test")
+    @Description("")
+    public void errorEnteringValuesMaxDistance() {
+        loginSteps
+                .correctLogin(user, password);
+        hansonsSteps
+                .errorResult("43", "1", "22",
+                        "54", "38", "48", "18",
+                        "×\n" + "Please fix the following errors:\n" +
+                                "*You cannot enter a race greater than a marathon.");
+    }
 }
