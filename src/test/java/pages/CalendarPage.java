@@ -1,6 +1,9 @@
 package pages;
 
+import org.testng.Assert;
+
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.switchTo;
 
 public class CalendarPage {
 
@@ -243,6 +246,7 @@ public class CalendarPage {
     public static final String COPY = "//a[@class='quick-copy']";
     public static final String DELETE = "//a[@class='quick-delete']";
         public static final String DELETE_OK = "//a[@data-handler='1']";
+    public static final String ERROR = "//div[@class='alert alert-error']";
 
 
 
@@ -567,6 +571,18 @@ public class CalendarPage {
 
     public CalendarPage deleteResultTrenirovkiOK() {
         $x(DELETE_OK).click();
+        return this;
+    }
+
+    public String getErrorText () {
+        return  $x(ERROR).getText();
+    }
+
+    public CalendarPage validateErrorText (String errorText) {
+        Assert.assertEquals(getErrorText(),errorText, "×\n" +
+                "Please fix the following errors:\n" +
+                "*Please enter an Integer value for Age.");
+        switchTo().defaultContent();
         return this;
     }
 

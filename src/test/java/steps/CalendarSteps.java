@@ -68,6 +68,12 @@ public class CalendarSteps {
         return this;
     }
 
+//    @Step("Error")
+//    public CalendarSteps error(){
+//        calendarPage
+//                .validateErrorText(error());
+//    }
+
     @Step("Open and update weather conditions during training")
     public CalendarSteps weather(String degrees, String moisture) {
         calendarPage
