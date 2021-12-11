@@ -11,7 +11,7 @@ public class PaceCalculatorSteps {
         this.paceCalculatorPage = new PaceCalculatorPage();
     }
 
-    @Step()
+    @Step("Filling in values for data output")
     public PaceCalculatorSteps resultPaceCalculator(String Dist, String hh,
                                                     String min, String sek) {
         paceCalculatorPage
@@ -24,7 +24,7 @@ public class PaceCalculatorSteps {
         return this;
     }
 
-    @Step()
+    @Step("Filling in values with error text")
     public PaceCalculatorSteps errorResult(String Dist, String hh,
                                            String min, String sek,
                                            String errorText) {

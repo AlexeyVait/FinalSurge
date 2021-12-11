@@ -11,8 +11,8 @@ public class TinmanSteps {
         this.tinmanPage = new TinmanPage();
     }
 
-    @Step("")
-    public TinmanSteps  enterYourMostRecentRaceTime(String hh, String mm, String ss) {
+    @Step("Entering data to calculate the race time")
+    public TinmanSteps enterDataTheRaceTime(String hh, String mm, String ss) {
         tinmanPage
                 .openWorkoutCalculators()
                 .openChapterTinman()
@@ -24,8 +24,8 @@ public class TinmanSteps {
         return this;
     }
 
-    @Step("")
-    public TinmanSteps enterYourMostRecentRaceTimeError(String hh, String mm, String ss, String getError){
+    @Step("If the data is not filled in, we should get an error message")
+    public TinmanSteps dataEntryError(String hh, String mm, String ss, String getError){
         tinmanPage
                 .openWorkoutCalculators()
                 .openChapterTinman()

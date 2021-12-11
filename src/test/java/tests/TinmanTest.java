@@ -13,7 +13,7 @@ public class TinmanTest extends BaseTest{
         loginSteps
                 .correctLogin(user, password);
         tinmanSteps
-                .enterYourMostRecentRaceTime("2", "32", "11");
+                .enterDataTheRaceTime("2", "32", "11");
     }
 
     @Test(enabled = false, description = "Error result if we do not enter data")
@@ -22,8 +22,8 @@ public class TinmanTest extends BaseTest{
         loginSteps
                 .correctLogin(user, password);
         tinmanSteps
-                .enterYourMostRecentRaceTimeError("","","","\"×\\n\" +\n" +
-                        "                        \"Please fix the following errors:\\n\" +\n" +
-                        "                        \"*Please enter an Integer value for Minutes.\"");
+                .dataEntryError("","","","\"×\\n\" +\n" +
+                        "       \"Please fix the following errors:\\n\" +\n" +
+                        "       \"*Please enter an Integer value for Minutes.\"");
     }
 }

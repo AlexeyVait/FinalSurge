@@ -11,7 +11,7 @@ public class McMillanSteps {
         this.mcMillanPage = new McMillanPage();
     }
 
-    @Step()
+    @Step("Filling in values for data output")
     public McMillanSteps resultCalculator(String hh_time, String mm_time, String ss_time,
                                           String hh_optional, String mm_optional,
                                           String ss_optional) {
@@ -27,7 +27,7 @@ public class McMillanSteps {
         return this;
     }
 
-    @Step()
+    @Step("Filling in values with error text")
     public McMillanSteps errorResult(String hh_time, String mm_time, String ss_time,
                                           String hh_optional, String mm_optional,
                                           String ss_optional, String getError) {

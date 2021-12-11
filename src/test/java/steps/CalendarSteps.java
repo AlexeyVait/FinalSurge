@@ -124,7 +124,7 @@ public class CalendarSteps {
         return this;
     }
 
-    @Step()
+    @Step("Filling in values with error text")
     public CalendarSteps errorForMinHR(String errorText) {
         calendarPage
                 .updateWorkout()
@@ -132,7 +132,7 @@ public class CalendarSteps {
         return this;
     }
 
-    @Step()
+    @Step("Filling in values with error text")
     public CalendarSteps errorForMaxHR(String errorText) {
         calendarPage
                 .updateWorkout()
@@ -140,7 +140,7 @@ public class CalendarSteps {
         return this;
     }
 
-    @Step()
+    @Step("Filling in values with error text")
     public CalendarSteps errorForAvgHR(String errorText) {
         calendarPage
                 .updateWorkout()
