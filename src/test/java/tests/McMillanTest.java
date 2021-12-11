@@ -1,13 +1,11 @@
 package tests;
 
-import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class McMillanTest extends BaseTest {
 
-    @Test(description = "Result for McMillan test")
-    @Description()
-    public void shouldBeToCalculateTheMcMillan() {
+    @Test(description = "The correct result when filling in the expected and optimal data")
+    public void correctInputOfValidData() {
         loginSteps
                 .correctLogin(user, password);
         mcMillanSteps
@@ -15,9 +13,8 @@ public class McMillanTest extends BaseTest {
                         "1", "47", "52");
     }
 
-    @Test(enabled = false, description = "Error entering values for McMillan test")
-    @Description()
-    public void errorEnteringValues() {
+    @Test(enabled = false, description = "Error when comparing expected and optimal data with blank fields")
+    public void fillingInOnlyOptimalData() {
         loginSteps
                 .correctLogin(user, password);
         mcMillanSteps

@@ -237,7 +237,7 @@ public class PalladinoTest extends BaseTest {
                                 "*Seconds (Race Time) cannot be greater than 59.");
     }
 
-    @Test(enabled = false, description = "Error entering values for Palladino in third test")
+        @Test(enabled = false, description = "Error entering values for Palladino in third test")
     public void errorEnteringValuesResultThird() {
         loginSteps
                 .correctLogin(user, password);

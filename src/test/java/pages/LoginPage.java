@@ -41,7 +41,7 @@ public class LoginPage {
 
     public CalendarPage isSelectionDay(String user, String password) {
         login(user, password);
-        return new CalendarPage().selectionDay();
+        return new CalendarPage().clickInButtonForCreateNewWorkout();
     }
 
     public LoginPage error(String user, String password) {

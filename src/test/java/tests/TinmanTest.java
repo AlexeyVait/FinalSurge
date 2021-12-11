@@ -7,16 +7,16 @@ import org.testng.annotations.Test;
 public class TinmanTest extends BaseTest{
 
 
-    @Test(description = "Result for Tinman test")
+    @Test(description = "The correct result during the calculation of the data")
     @Description()
-    public void shouldBeToCalculateTheTinman() {
+    public void correctInputOfValidData() {
         loginSteps
                 .correctLogin(user, password);
         tinmanSteps
                 .enterYourMostRecentRaceTime("2", "32", "11");
     }
 
-    @Test(enabled = false, description = "Error entering values for Tinman test")
+    @Test(enabled = false, description = "Error result if we do not enter data")
     @Description()
     public void errorEnteringValues() {
         loginSteps

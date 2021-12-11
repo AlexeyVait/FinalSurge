@@ -1,13 +1,11 @@
 package tests;
 
-import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class HansonsTest extends BaseTest {
 
-    @Test(description = "Result for Hansons test")
-    @Description("")
-    public void shouldBeToCalculateTheHansons() {
+    @Test(description = "The correct result during the calculation of the pace")
+    public void correctInputOfValidData() {
         loginSteps
                 .correctLogin(user, password);
         hansonsSteps
@@ -15,9 +13,8 @@ public class HansonsTest extends BaseTest {
                         "54", "38", "48", "18");
     }
 
-    @Test(description = "Error entering values for Hansons test")
-    @Description("")
-    public void errorEnteringValues() {
+    @Test(description = "Result error when there is no data in the minutes field")
+    public void fillingInFieldsWithoutSpecifyingValues() {
         loginSteps
                 .correctLogin(user, password);
         hansonsSteps
@@ -27,9 +24,8 @@ public class HansonsTest extends BaseTest {
                                 "*Please enter an Integer value for Minutes.");
     }
 
-    @Test(description = "Error entering values for Hansons test")
-    @Description("")
-    public void errorEnteringValuesMaxTemperature() {
+    @Test(description = "Result error when specifying the maximum allowable pace")
+    public void dataEntryIsAboveTheMaximumAllowableRate() {
         loginSteps
                 .correctLogin(user, password);
         hansonsSteps
@@ -39,9 +35,8 @@ public class HansonsTest extends BaseTest {
                                 "*Temperature Adjustment cannot be greater than 150.00.");
     }
 
-    @Test(description = "Error entering values for Hansons test")
-    @Description("")
-    public void errorEnteringValuesMaxHumidity() {
+    @Test(description = "Result error when specifying the maximum allowable humidity")
+    public void enteringDataAboveTheMaximumAllowableHumidity() {
         loginSteps
                 .correctLogin(user, password);
         hansonsSteps
@@ -51,9 +46,8 @@ public class HansonsTest extends BaseTest {
                                 "*Humidity Adjustment cannot be greater than 100.00.");
     }
 
-    @Test(description = "Error entering values for Hansons test")
-    @Description("")
-    public void errorEnteringValuesMaxDistance() {
+    @Test(description = "Result error when specifying the maximum allowable distance")
+    public void enteringDataAboveTheMaximumAllowableDistance() {
         loginSteps
                 .correctLogin(user, password);
         hansonsSteps

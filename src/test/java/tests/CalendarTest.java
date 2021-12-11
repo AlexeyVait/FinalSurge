@@ -1,13 +1,11 @@
 package tests;
 
-import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class CalendarTest extends BaseTest {
 
-    @Test
-    @Description()
-    public void calenarTestDobavlenie() {
+    @Test (description = "Correct data entry to fill in the calendar")
+    public void addAQuickWorkoutWithValidData() {
         loginSteps
                 .correctLogin(user, password);
         calendarSteps
@@ -22,9 +20,8 @@ public class CalendarTest extends BaseTest {
                 .deleteWorkout();
     }
 
-    @Test(description = "Error valid min HH")
-    @Description()
-    public void errorValidMinHH() {
+    @Test(description = "Error when filling in the extreme value of the maximum hh")
+    public void addDataExceedingTheMaximum() {
         loginSteps
                 .correctLogin(user, password);
         calendarSteps
@@ -37,9 +34,8 @@ public class CalendarTest extends BaseTest {
                         "*Minimum Heartrate cannot be greater than 300.");
     }
 
-    @Test(description = "Error valid max HH")
-    @Description()
-    public void errorValidMaxHH() {
+    @Test(description = "Error when filling in the extreme value of the minimum hh")
+    public void addDataExceedingTheMinimum() {
         loginSteps
                 .correctLogin(user, password);
         calendarSteps
@@ -52,9 +48,8 @@ public class CalendarTest extends BaseTest {
                         "*Maximum Heartrate cannot be greater than 300.");
     }
 
-    @Test(description = "Error valid avg HH")
-    @Description()
-    public void errorValidAgHH() {
+    @Test(description = "Error when filling in the extreme value of the average hh")
+    public void addDataExceedingTheAverageValue() {
         loginSteps
                 .correctLogin(user, password);
         calendarSteps

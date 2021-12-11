@@ -1,22 +1,19 @@
 package tests;
 
-import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class CaloricNeedsTest extends BaseTest {
 
-    @Test(description = "Result for Caloric Needs test")
-    @Description()
-    public void shouldBeToCalculateTheCaloriesOfAMan() {
+    @Test(description = "Correct result during calorie counting ")
+    public void correctInputOfValidData () {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps
                 .calculationCaloric("86", "178", "25", "10");
     }
 
-    @Test(description = "Error entering values for CaloricNeeds test")
-    @Description()
-    public void errorEnteringValues() {
+    @Test(description = "Result error if there is no data in the age field")
+    public void fillingInFieldsWithoutSpecifyingTheAge() {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps
@@ -25,9 +22,8 @@ public class CaloricNeedsTest extends BaseTest {
                         "*Please enter an Integer value for Age.");
     }
 
-    @Test(description = "Error entering values for CaloricNeeds test")
-    @Description()
-    public void errorEnteringValuesForMinAge() {
+    @Test(description = "Result error when specifying the minimum allowable age")
+    public void dataEntryBelowTheMinimumAllowedAge() {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps
@@ -36,9 +32,8 @@ public class CaloricNeedsTest extends BaseTest {
                         "*Age cannot be less than 5.");
     }
 
-    @Test(description = "Error entering values for CaloricNeeds test")
-    @Description()
-    public void errorEnteringValuesForMinWeight() {
+    @Test(description = "Result error when specifying the minimum allowable weight")
+    public void dataEntryIsBelowTheMinimumAllowableWeight() {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps
@@ -47,9 +42,8 @@ public class CaloricNeedsTest extends BaseTest {
                         "*Weight cannot be less than 30.00.");
     }
 
-    @Test(description = "Error entering values for CaloricNeeds test")
-    @Description()
-    public void errorEnteringValuesForMaxWeight() {
+    @Test(description = "Result error when specifying the maximum allowable weight")
+    public void dataEntryIsHigherThanTheMaximumAllowableWeight() {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps
@@ -58,9 +52,8 @@ public class CaloricNeedsTest extends BaseTest {
                         "*Weight cannot be greater than 500.00.");
     }
 
-    @Test(description = "Error entering values for CaloricNeeds test")
-    @Description()
-    public void errorEnteringValuesForMinGrowth() {
+    @Test(description = "Result error when specifying the minimum allowable height")
+    public void dataEntryIsBelowTheMinimumAllowableHeight() {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps
@@ -69,9 +62,8 @@ public class CaloricNeedsTest extends BaseTest {
                         "*Height in Centimeters cannot be less than 60.00.");
     }
 
-    @Test(description = "Error entering values for CaloricNeeds test")
-    @Description()
-    public void errorEnteringValuesForMaxGrowth() {
+    @Test(description = "Result error when specifying the Maximum allowable height")
+    public void dataEntryIsBelowTheMaximumAllowableHeight() {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps
@@ -80,9 +72,8 @@ public class CaloricNeedsTest extends BaseTest {
                         "*Height in Centimeters cannot be greater than 240.00.");
     }
 
-    @Test(description = "Error entering values for CaloricNeeds test")
-    @Description()
-    public void errorEnteringValuesForMaxDistance() {
+    @Test(description = "Result error when specifying the maximum allowable distance")
+    public void dataEntryIsHigherThanTheMaximumAllowableDistance() {
         loginSteps
                 .correctLogin(user, password);
         caloricNeedsSteps

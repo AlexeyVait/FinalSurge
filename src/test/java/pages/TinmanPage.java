@@ -30,7 +30,7 @@ public class TinmanPage {
     public static final String KM_8_TINMAN = "//select[@name='distance']//option[@value='8']";
     public static final String KM_10_TINMAN = "//select[@name='distance']//option[@value='10']";
     public static final String KM_15_TINMAN = "//select[@name='distance']//option[@value='15']";
-    public static final String KM_20_TINMAN = "//select[@name='distance']//option[@value='20']";
+    public static final String KM_20_TINMAN = "//select[@name='distance']//option[@value='']";
     public static final String KM_30_TINMAN = "//select[@name='distance']//option[@value='30']";
     public static final String KM_50_TINMAN = "//select[@name='distance']//option[@value='50']";
     public static final String YARDS_440_TINMAN = "//select[@name='distance']//option[@value='0.402336']";

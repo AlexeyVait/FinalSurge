@@ -11,41 +11,41 @@ public class CalendarSteps {
         this.calendarPage = new CalendarPage();
     }
 
-    @Step("Add main workout")
+    @Step("Workout quick add")
     public CalendarSteps addingAWorkout(String name, String description,
                                         String distance, String HH, String MM,
                                         String SS, String distancePlan,
                                         String hh, String mm, String ss,
-                                        String notes, String aPlace, String group) {
+                                        String notes, String data, String age) {
         calendarPage
-                .selectionDay()
-                .timeAndDay()
+                .clickInButtonForCreateNewWorkout()
+                .clickInQuickAddButton()
                 .selectionTimeAndDay()
-                .selectionActivityType_1()
-                .selectionActivityType_2()
-                .workoutName(name)
-                .workDescription(description)
-                .galochka()
-                .distancePlanGalka(distance)
-                .selectDistanceGalka()
-                .selectKmDistanceGalka()
-                .planTimeGalka(HH, MM, SS)
+                .selectionActivityType()
+                .selectionFartlekActivityType()
+                .enterInInputWorkoutName(name)
+                .enterInformationInMenuWorkDescription(description)
+                .showDistanceAndDuration()
+                .enterDistanceInInputShow(distance)
+                .selectShowDistance()
+                .selectKmShowDistance()
+                .enterDataInInputDistance(HH, MM, SS)
                 .distancePlan(distancePlan)
                 .selectDistance()
                 .selectKmDistance()
                 .planTime(hh, mm, ss)
                 .selectSpeed()
                 .selectKmSpeed()
-                .selectSamochyvstvie()
-                .selectSamochyvstvieGood()
-                .selectYsilie()
-                .itogYsilie()
-                .zametki(notes)
-                .dopGalka()
-                .obcheeMesto(aPlace)
-                .vozrastGrupa(group)
-                .saveGalka()
-                .dobavitTrenirivky();
+                .needSelectHealth()
+                .selectTheGoodButton()
+                .needSelectPerceivedEffort()
+                .resultPerceivedEffort()
+                .enterResultInWorkoutNotes(notes)
+                .clickInButtonRace()
+                .enterDataInInputOverallPlace(data)
+                .enterDataInInputGroupPlace(age)
+                .saveToLibraryWorkout()
+                .addWorkout();
         return this;
     }
 
@@ -55,17 +55,17 @@ public class CalendarSteps {
         calendarPage
                 .openCalendar()
                 .openView()
-                .openRedactirovanie()
+                .clickButtonView()
                 .updateDistance(basic_distance)
-                .selectUpdateRasstoianie()
-                .selectUpdateKmRasstoianie()
+                .selectUpdateDistance()
+                .selectUpdateKmDistance()
                 .updateTime()
-                .updateSamochuvstvie()
-                .updateYsilie()
-                .updateUrovenYsilie()
-                .minUdarVMinyty(min)
-                .sredneUdarVMinyty(sred)
-                .maxUdarVMinyty(max)
+                .updateNormalView()
+                .updateSelectView()
+                .updateHardView()
+                .minNumberOfHeartBeatsPerMinute(min)
+                .avgNumberOfHeartBeatsPerMinutey(sred)
+                .maxNumberOfHeartBeatsPerMinute(max)
                 .caloriesUpdate(calories);
         return this;
     }
@@ -74,60 +74,60 @@ public class CalendarSteps {
     @Step("Open and update weather conditions during training")
     public CalendarSteps weather(String degrees, String moisture) {
         calendarPage
-                .updateGalka()
+                .updateLibraryView()
                 .scroll()
-                .updatePogoda()
-                .updatePogodaGalka()
-                .updateGradys(degrees)
-                .updateSelectGradys()
-                .updateSelectCGradys()
-                .updateVlaga(moisture);
+                .updateWeather()
+                .updatePartSunny()
+                .updateTemperature(degrees)
+                .updateSelectTemperature()
+                .updateSelectCTemperature()
+                .updateHumidity(moisture);
         return this;
     }
 
     @Step("Add pre-workout warm-up data")
     public CalendarSteps addingAWarmUp(String distance, String HH, String MM, String SS) {
         calendarPage
-                .updateRazminki()
-                .updateRazminkiDistance(distance)
-                .updateRazminkiSelect()
-                .updateRazminkiSelectKm()
-                .updateRazminkiTime(HH, MM, SS);
+                .updateWarmUp()
+                .updateWarmUpDistance(distance)
+                .updateWarmUpSelect()
+                .updateWarmUpSelectKm()
+                .updateWarmUpTime(HH, MM, SS);
         return this;
     }
 
     @Step("Add post-workout cooling data")
     public CalendarSteps addCooling(String distance, String HH, String MM, String SS) {
         calendarPage
-                .updateOhlachdeniaDistance(distance)
-                .updateOhlachdeniaDistanceSelect()
-                .updateOhlachdeniaDistanceSelectKm()
-                .updateOhlachdeniaTime(HH, MM, SS);
+                .updateCoolDownDistance(distance)
+                .updateCoolDownDistanceSelect()
+                .updateCoolDownDistanceSelectKm()
+                .updateCoolDownTime(HH, MM, SS);
         return this;
     }
 
     @Step("Add a workout with all changes")
     public CalendarSteps addModifiedWorkout() {
         calendarPage
-                .updateBibliotekaGalka()
-                .updateTrenirovki()
+                .updateLibrary()
+                .updateWorkout()
                 .openCalendarResult()
-                .clickNaGotovTrenirovky();
+                .clickInWorkout();
         return this;
     }
 
     @Step("Deleting an added workout")
     public CalendarSteps deleteWorkout() {
         calendarPage
-                .deleteResultTrenirovki()
-                .deleteResultTrenirovkiOK();
+                .deleteResultWorkout()
+                .deleteResultWorkoutOK();
         return this;
     }
 
     @Step()
     public CalendarSteps errorForMinHR(String errorText) {
         calendarPage
-                .updateTrenirovki()
+                .updateWorkout()
                 .validateErrorTextMinHH(errorText);
         return this;
     }
@@ -135,7 +135,7 @@ public class CalendarSteps {
     @Step()
     public CalendarSteps errorForMaxHR(String errorText) {
         calendarPage
-                .updateTrenirovki()
+                .updateWorkout()
                 .validateErrorTextMaxHH(errorText);
         return this;
     }
@@ -143,7 +143,7 @@ public class CalendarSteps {
     @Step()
     public CalendarSteps errorForAvgHR(String errorText) {
         calendarPage
-                .updateTrenirovki()
+                .updateWorkout()
                 .validateErrorTextAvgHH(errorText);
         return this;
     }

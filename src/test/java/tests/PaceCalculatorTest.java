@@ -1,22 +1,19 @@
 package tests;
 
-import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class PaceCalculatorTest extends BaseTest {
 
-    @Test(description = "Result for Pace Calculator test")
-    @Description()
-    public void shouldBeToCalculateThePace() {
+    @Test(description = "The correct result during the calculation of the pace")
+    public void correctInputOfValidData() {
         loginSteps
                 .correctLogin(user, password);
         paceCalculatorSteps
                 .resultPaceCalculator("10", "1", "24", "35");
     }
 
-    @Test(description = "Error entering values for Pace Calculator test")
-    @Description()
-    public void errorEnteringValues() {
+    @Test(description = "Result error if there is no data in the minutes field")
+    public void fillingInFieldsWithoutSpecifyingValues() {
         loginSteps
                 .correctLogin(user, password);
         paceCalculatorSteps
@@ -25,9 +22,8 @@ public class PaceCalculatorTest extends BaseTest {
                         "*Please enter an Integer value for Minutes.");
     }
 
-    @Test(description = "Error entering values for Pace Calculator test")
-    @Description()
-    public void errorEnteringValuesMaxDistance() {
+    @Test(description = "Result error when specifying the maximum allowable distance")
+    public void enteringDataAboveTheMaximumAllowableDistance() {
         loginSteps
                 .correctLogin(user, password);
         paceCalculatorSteps
@@ -36,9 +32,8 @@ public class PaceCalculatorTest extends BaseTest {
                         "*Distance cannot be greater than 9,999.00.");
     }
 
-    @Test(description = "Error entering values for Pace Calculator test")
-    @Description()
-    public void errorEnteringValuesMaxMin() {
+    @Test(description = "Result error when specifying the maximum allowed value of minutes")
+    public void dataEntryAboveTheMaximumAllowedValuesMM() {
         loginSteps
                 .correctLogin(user, password);
         paceCalculatorSteps
@@ -47,9 +42,8 @@ public class PaceCalculatorTest extends BaseTest {
                         "*Minutes cannot be greater than 59.");
     }
 
-    @Test(description = "Error entering values for Pace Calculator test")
-    @Description()
-    public void errorEnteringValuesMaxSek() {
+    @Test(description = "Result error when specifying the maximum allowed value of seconds")
+    public void dataEntryAboveTheMaximumAllowedValuesSS() {
         loginSteps
                 .correctLogin(user, password);
         paceCalculatorSteps

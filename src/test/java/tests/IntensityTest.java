@@ -1,22 +1,19 @@
 package tests;
 
-import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 public class IntensityTest extends BaseTest {
 
-    @Test(description = "Result for Intensity test")
-    @Description()
-    public void shouldBeToCalculateTheIntensity() {
+    @Test(description = "The correct result during the calculation of the intensity data")
+    public void correctInputOfValidData() {
         loginSteps
                 .correctLogin(user, password);
         intensitySteps
                 .resultIntensity("1","26", "54");
     }
 
-    @Test(description = "Error entering values for Intensity test")
-    @Description()
-    public void errorEnteringValues() {
+    @Test(description = "Result error if there is no data in the minutes field")
+    public void fillingInFieldsWithoutSpecifyingValues() {
         loginSteps
                 .correctLogin(user, password);
         intensitySteps
@@ -25,20 +22,9 @@ public class IntensityTest extends BaseTest {
                         "*Please enter an Integer value for Minutes.");
     }
 
-    @Test(description = "Error entering values for Intensity test")
-    @Description()
-    public void errorEnteringValuesMinTime() {
-        loginSteps
-                .correctLogin(user, password);
-        intensitySteps
-                .errorResult("0", "26","18","×\n" +
-                        "Please fix the following errors:\n" +
-                        "*Your 10k time cannot be less than 26:19 in order to use this calculator.");
-    }
 
-    @Test(description = "Error entering values for Intensity test")
-    @Description()
-    public void errorEnteringValuesMaxMin() {
+    @Test(description = "Result error when specifying the maximum allowable minute value")
+    public void dataEntryAboveTheMaximumAllowedValuesMM() {
         loginSteps
                 .correctLogin(user, password);
         intensitySteps
@@ -47,9 +33,8 @@ public class IntensityTest extends BaseTest {
                         "*Minutes cannot be greater than 59.");
     }
 
-    @Test(description = "Error entering values for Intensity test")
-    @Description()
-    public void errorEnteringValuesMaxSek() {
+    @Test(description = "Result error when specifying the maximum allowed value in the seconds field")
+    public void dataEntryAboveTheMaximumAllowedValuesSS() {
         loginSteps
                 .correctLogin(user, password);
         intensitySteps
