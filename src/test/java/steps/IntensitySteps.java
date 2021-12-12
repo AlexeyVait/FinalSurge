@@ -16,10 +16,10 @@ public class IntensitySteps {
         intensityPage
                 .openWorkoutCalculators()
                 .openChapterIntensity()
-                .select()
-                .eventTime(hh, mm, ss)
-                .intensitySaveButton()
-                .testShouldBeOutputResults();
+                .clickInDistanceButton()
+                .enterTheTime(hh, mm, ss)
+                .clickSaveButton()
+                .outputOfTheRequiredResult();
         return this;
     }
 
@@ -29,9 +29,9 @@ public class IntensitySteps {
         intensityPage
                 .openWorkoutCalculators()
                 .openChapterIntensity()
-                .select()
-                .eventTime(hh, mm, ss)
-                .intensitySaveButton()
+                .clickInDistanceButton()
+                .enterTheTime(hh, mm, ss)
+                .clickSaveButton()
                 .validateErrorText(errorText);
         return this;
     }

@@ -16,10 +16,10 @@ public class PalladinoSteps {
         palladinoPage
                 .openWorkoutCalculators()
                 .openChapterPalladino()
-                .criticalPower(c)
+                .enterDataInInputCriticalPower(c)
                 .reserveWorkCapacity(rw)
                 .pacesSaveButton()
-                .testShouldBeOutputResultsPaceCalculator();
+                .outputOfTheRequiredResult();
         return this;
     }
 
@@ -33,7 +33,7 @@ public class PalladinoSteps {
                 .longTest(long_min, long_sek)
                 .longTestAvgPower(long_sh)
                 .resultsSaveButtonOne()
-                .testShouldBeOutputEstimateResultsFirst();
+                .outputOfTheRequiredResultFirst();
         return this;
     }
 
@@ -44,7 +44,7 @@ public class PalladinoSteps {
                 .raceTimeOne(hh, min, sek)
                 .raceAvgPowerOne(avg)
                 .resultsSaveButtonTwo()
-                .testShouldBeOutputEstimateResultsSecond();
+                .outputOfTheRequiredResultSecond();
         return this;
     }
 
@@ -55,7 +55,7 @@ public class PalladinoSteps {
                 .raceTimeTwo(min, sek)
                 .raceAvgPowerTwo(avg)
                 .resultsSaveButtonFree()
-                .testShouldBeOutputEstimateResultsThird();
+                .outputOfTheRequiredResultThird();
         return this;
     }
 
@@ -65,7 +65,7 @@ public class PalladinoSteps {
         palladinoPage
                 .openWorkoutCalculators()
                 .openChapterPalladino()
-                .criticalPower(c)
+                .enterDataInInputCriticalPower(c)
                 .reserveWorkCapacity(rw)
                 .pacesSaveButton()
                 .validateErrorTextPaceCalculator(getError);

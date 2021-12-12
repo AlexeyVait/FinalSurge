@@ -66,7 +66,7 @@ public class McMillanPage {
     }
 
     public McMillanPage mcMillanSaveButton() {
-        log.info("mc Millan save button");
+        log.info("Mc Millan save button");
         $x(CALCULATE_MY_PACES_MC_MILLAN_BUTTON).click();
         switchTo().defaultContent();
         return this;

@@ -16,13 +16,13 @@ public class CaloricNeedsSteps {
                                                 String age, String dist) {
         caloricNeedsPage
                 .openOtherCalculators()
-                .indicateWeightInKilograms(kg)
-                .indicateLengthInCentimeters(cm)
-                .indicateAge(age)
+                .enterTheDataOnWeightAndClickInButton(kg)
+                .enterTheDataOnLengthAndClickInButton(cm)
+                .enterTheDataInInputAge(age)
                 .genderSelection()
-                .indicateInRunDistance(dist)
+                .enterDataInRunDistance(dist)
                 .caloricSaveButton()
-                .testShouldBeOutputResults();
+                .outputOfTheRequiredResult();
         return this;
     }
 
@@ -32,11 +32,11 @@ public class CaloricNeedsSteps {
                                           String errorText) {
         caloricNeedsPage
                 .openOtherCalculators()
-                .indicateWeightInKilograms(kg)
-                .indicateLengthInCentimeters(cm)
-                .indicateAge(age)
+                .enterTheDataOnWeightAndClickInButton(kg)
+                .enterTheDataOnLengthAndClickInButton(cm)
+                .enterTheDataInInputAge(age)
                 .genderSelection()
-                .indicateInRunDistance(dist)
+                .enterDataInRunDistance(dist)
                 .caloricSaveButton()
                 .validateErrorText(errorText);
         return this;

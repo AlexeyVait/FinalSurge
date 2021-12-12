@@ -17,10 +17,10 @@ public class PaceCalculatorSteps {
         paceCalculatorPage
                 .openOtherCalculators()
                 .openChapterPace()
-                .indicateInRunDistance(Dist)
-                .indicateTime(hh, min, sek)
+                .clickInDistanceButton(Dist)
+                .enterTheTime(hh, min, sek)
                 .paceSaveButton()
-                .testShouldBeOutputResults();
+                .outputOfTheRequiredResult();
         return this;
     }
 
@@ -31,8 +31,8 @@ public class PaceCalculatorSteps {
         paceCalculatorPage
                 .openOtherCalculators()
                 .openChapterPace()
-                .indicateInRunDistance(Dist)
-                .indicateTime(hh, min, sek)
+                .clickInDistanceButton(Dist)
+                .enterTheTime(hh, min, sek)
                 .paceSaveButton()
                 .validateErrorText(errorText);
         return this;

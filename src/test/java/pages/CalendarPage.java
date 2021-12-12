@@ -312,141 +312,169 @@ public class CalendarPage {
     }
 
     public CalendarPage avgNumberOfHeartBeatsPerMinutey(String amount) {
+        log.info("Avg number of heart beats per minutey");
         $x(AVG_HR_VIEW).sendKeys(amount);
         return this;
     }
 
     public CalendarPage maxNumberOfHeartBeatsPerMinute(String amount) {
+        log.info("Max number of heart beats per minute");
         $x(MAX_HR_VIEW).sendKeys(amount);
         return this;
     }
 
     public CalendarPage caloriesUpdate(String amount) {
+        log.info("Calories update");
         $x(CALORIES_BURNED).sendKeys(amount);
         return this;
     }
 
     public CalendarPage updateLibraryView() {
+        log.info("Update library view");
         $x(SAVE_TO_LIBRARY_VIEW).click();
         return this;
     }
 
 
     public CalendarPage scroll() {
+        log.info("Scroll");
         $x(SCROLL).click();
         return this;
     }
 
     public CalendarPage updateWeather() {
+        log.info("Update weathe");
         $x(WEATHER).click();
         return this;
     }
 
     public CalendarPage updatePartSunny() {
+        log.info("Update parts sunny");
         $x(PART_SUNNY).click();
         return this;
     }
 
     public CalendarPage updateTemperature(String degrees) {
+        log.info("Update temperature");
         $x(TEMPERATURE).sendKeys(degrees);
         return this;
     }
 
     public CalendarPage updateSelectTemperature() {
+        log.info("Update select temperature");
         $x(SELECT_F_C_).click();
         return this;
     }
 
     public CalendarPage updateSelectCTemperature() {
+        log.info("Update select C temperature");
         $x(_C_).click();
         return this;
     }
 
     public CalendarPage updateHumidity(String percent) {
+        log.info("Update humidity");
         $x(WEATHER_HUMIDITY).sendKeys(percent);
         return this;
     }
 
     public CalendarPage updateWarmUp() {
+        log.info("Update warm up");
         $x(UP_DOWN).click();
         return this;
     }
 
     public CalendarPage updateWarmUpDistance(String distance) {
+        log.info("Update warm up distance");
         $x(DISTANCE_UP).sendKeys(distance);
         return this;
     }
 
     public CalendarPage updateWarmUpSelect() {
+        log.info("Update warm up select");
         $x(DISTANCE_SELECT_UP).click();
         return this;
     }
 
     public CalendarPage updateWarmUpSelectKm() {
+        log.info("Update warm up select");
         $x(DISTANCE_SELECT_KM_UP).click();
         return this;
     }
 
     public CalendarPage updateWarmUpTime(String HH, String MM, String SS) {
+        log.info("Update warm up time");
         $x(TIME_UP).sendKeys(HH, MM, SS);
         return this;
     }
 
     public CalendarPage updateCoolDownDistance(String km) {
+        log.info("Update cool down distance");
         $x(DISTANCE_DOWN).sendKeys(km);
         return this;
     }
 
     public CalendarPage updateCoolDownDistanceSelect() {
+        log.info("Update cool down distance select");
         $x(DISTANCE_SELECT_DOWN).click();
         return this;
     }
 
     public CalendarPage updateCoolDownDistanceSelectKm() {
+        log.info("Update cool down distance select KM");
         $x(DISTANCE_SELECT_KM_DOWN).click();
         return this;
     }
 
     public CalendarPage updateCoolDownTime(String HH, String MM, String SS) {
+        log.info("Update cool down time");
         $x(TIME_DOWN).sendKeys(HH, MM, SS);
         return this;
     }
 
     public CalendarPage updateLibrary() {
+        log.info("Update library");
         $x(SAVE_ON_THE_LIBRARY).click();
         return this;
     }
 
     public CalendarPage updateWorkout(){
+        log.info("Update workout");
         $x(UPDATE_WORKOUT_BUTTON_SAVE_VIEW).click();
         return this;
     }
 
     public CalendarPage openCalendarResult() {
+        log.info("Open calendar result");
         $x(OPEN_CALENDAR).click();
         return this;
     }
 
     public CalendarPage clickInWorkout() {
+        log.info("Click in Workout");
         $x(CLICK_IN_WORKOUT).click();
         return this;
     }
 
     public CalendarPage deleteResultWorkout() {
+        log.info("Delete result workout");
         $x(DELETE).click();
         return this;
     }
 
     public CalendarPage deleteResultWorkoutOK() {
+        log.info("Delete result workout OK");
         $x(DELETE_OK).click();
         return this;
     }
 
     public String getErrorText () {
+        log.info("getErrorText");
         return  $x(ERROR).getText();
     }
 
     public CalendarPage validateErrorTextMinHH (String errorText) {
+        log.info("Validate error text min HH");
         Assert.assertEquals(getErrorText(),errorText, "×\n" +
                 "Please fix the following errors:\n" +
                 "*Maximum Heartrate cannot be greater than 300.");
@@ -454,6 +482,7 @@ public class CalendarPage {
     }
 
     public CalendarPage validateErrorTextMaxHH (String errorText) {
+        log.info("Validate error text max HH");
         Assert.assertEquals(getErrorText(),errorText, "×\n" +
                 "Please fix the following errors:\n" +
                 "*Minimum Heartrate cannot be greater than 300.");
@@ -462,6 +491,7 @@ public class CalendarPage {
     }
 
     public CalendarPage validateErrorTextAvgHH (String errorText) {
+        log.info("Validate error text avg HH");
         Assert.assertEquals(getErrorText(),errorText, "×\n" +
                 "Please fix the following errors:\n" +
                 "*Average Heartrate cannot be greater than 300.");

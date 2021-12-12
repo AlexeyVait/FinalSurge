@@ -16,11 +16,11 @@ public class TinmanSteps {
         tinmanPage
                 .openWorkoutCalculators()
                 .openChapterTinman()
-                .indicateInRunDistance()
-                .indicateTime(hh, mm, ss)
+                .clickInDistanceButton()
+                .enterTheDataInDistance(hh, mm, ss)
                 .genderSelection()
                 .tinmanSaveButton()
-                .testShouldBeOutputResults();
+                .outputOfTheRequiredResult();
         return this;
     }
 
@@ -29,8 +29,8 @@ public class TinmanSteps {
         tinmanPage
                 .openWorkoutCalculators()
                 .openChapterTinman()
-                .indicateInRunDistance()
-                .indicateTime(hh, mm , ss)
+                .clickInDistanceButton()
+                .enterTheDataInDistance(hh, mm , ss)
                 .genderSelection()
                 .tinmanSaveButton()
                 .validateErrorText(getError);

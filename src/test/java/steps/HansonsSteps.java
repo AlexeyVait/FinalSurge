@@ -18,11 +18,11 @@ public class HansonsSteps {
         hansonsPage
                 .openWorkoutCalculators()
                 .openChapterHansons()
-                .indicateInRunDistance(dis)
-                .indicateTime(hh, mm, ss)
-                .dataAdjustments(temp, humidity, speed)
+                .enterTheDataAndClickInDistanceButton(dis)
+                .enterTheTime(hh, mm, ss)
+                .enterTheDataInInputAdjustments(temp, humidity, speed)
                 .hansonSaveButton()
-                .testShouldBeOutputResults();
+                .outputOfTheRequiredResult();
         return this;
     }
 
@@ -33,9 +33,9 @@ public class HansonsSteps {
         hansonsPage
                 .openWorkoutCalculators()
                 .openChapterHansons()
-                .indicateInRunDistance(dis)
-                .indicateTime(hh, mm, ss)
-                .dataAdjustments(temp, humidity, speed)
+                .enterTheDataAndClickInDistanceButton(dis)
+                .enterTheTime(hh, mm, ss)
+                .enterTheDataInInputAdjustments(temp, humidity, speed)
                 .hansonSaveButton()
                 .validateErrorText(errorText);
         return this;

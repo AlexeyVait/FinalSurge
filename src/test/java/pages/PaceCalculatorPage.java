@@ -19,27 +19,27 @@ public class PaceCalculatorPage {
     public static final String RESULT = "//i[@class='splashy-help pop-over'][@data-content='These are common splits based off the pace calculated above.']";
 
     public PaceCalculatorPage openOtherCalculators() {
-        log.info("Get page if opened");
+        log.info("Open other calculators");
         $x(CALORIC_NEEDS_BUTTON_1).click();
         switchTo().frame("OtherCalciFrame");
         return this;
     }
 
     public PaceCalculatorPage openChapterPace() {
-        log.info("Get page if opened");
+        log.info("Open chapter pace");
         $x(PACE_CALCULATORS_BUTTON).doubleClick();
         return this;
     }
 
-    public PaceCalculatorPage indicateInRunDistance(String Dist) {
-        log.info("Get page if opened");
+    public PaceCalculatorPage clickInDistanceButton(String Dist) {
+        log.info("Click in distance button");
         $x(DISTANCE).sendKeys(Dist);
         $x(DISTANCE_KM).click();
         return this;
     }
 
-    public PaceCalculatorPage indicateTime(String hh, String min, String sek) {
-        log.info("Get page if opened");
+    public PaceCalculatorPage enterTheTime(String hh, String min, String sek) {
+        log.info("Enter the time");
         $x(TIME_HH).sendKeys(hh);
         $x(TIME_MM).sendKeys(min);
         $x(TIME_SS).sendKeys(sek);
@@ -47,30 +47,30 @@ public class PaceCalculatorPage {
     }
 
     public PaceCalculatorPage paceSaveButton() {
-        log.info("Get page if opened");
+        log.info("Pace save button");
         $x(CALCULATOR_PACES_BUTTON).submit();
         return this;
     }
 
     public boolean locatorForOutput() {
-        log.info("Get page if opened");
+        log.info("Locator for output");
         $x(RESULT);
         return true;
     }
 
-    public PaceCalculatorPage testShouldBeOutputResults () {
-        log.info("Get page if opened");
+    public PaceCalculatorPage outputOfTheRequiredResult () {
+        log.info("Output of the required result");
         Assert.assertTrue(locatorForOutput());
         return this;
     }
 
     public String getErrorText () {
-        log.info("Get page if opened");
+        log.info("Get error text");
         return $x(ERROR).getText();
     }
 
     public PaceCalculatorPage validateErrorText (String errorText) {
-        log.info("Get page if opened");
+        log.info("Validate error text");
         Assert.assertEquals(getErrorText(), errorText, "×\n" +
                 "Please fix the following errors:\n" +
                 "*Please enter an Integer value for Minutes.");

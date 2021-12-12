@@ -23,44 +23,41 @@ public class LoginPage {
 
 
     public LoginPage open() {
+        log.info("Open");
         Selenide.open("login.cshtml");
         return this;
     }
 
-    public LoginPage isOpened() {
-        $(welcomeHome_CSS).shouldBe(visible, Duration.ofSeconds(5));
-        return this;
-    }
 
     @Step("Login using credentials: '{user}' and '{pass}'")
     public LoginPage login(String user, String pass) {
+        log.info("Login");
         $(USERNAME_CSS).sendKeys(user);
         $(PASSWORD_CSS).sendKeys(pass);
         $(LOGIN_SUBMIT_CSS).submit();
         return this;
     }
 
-    public CalendarPage isSelectionDay(String user, String password) {
-        login(user, password);
-        return new CalendarPage().clickInButtonForCreateNewWorkout();
-    }
-
     public LoginPage error(String user, String password) {
+        log.info("Error");
         login(user, password);
         return this;
     }
 
     public LoginPage getError() {
+        log.info("Get error");
         $x(errorTextLocator_CSS).shouldBe(visible);
         return this;
     }
 
     public String getErrorText() {
+        log.info("Get error text");
         return $x(errorTextLocator_CSS).getText();
     }
 
 
     public LoginPage validateErrorText(String errorText) {
+        log.info("Validate error text");
         Assert.assertEquals(getErrorText(), errorText, "Invalid login credentials. Please try again.");
         return this;
     }

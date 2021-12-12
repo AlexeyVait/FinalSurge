@@ -23,26 +23,26 @@ public class TinmanPage {
     public static final String ERROR_OF_SITE = "//a[@data-dismiss='alert']";
 
     public TinmanPage openWorkoutCalculators() {
-        log.info("Get page if opened");
+        log.info("Open workout calculators");
         $x(WORKOUT_CALCULATORS_BUTTON).click();
         switchTo().frame("IntensityCalciFrame");
         return this;
     }
 
     public TinmanPage openChapterTinman() {
-        log.info("Get page if opened");
+        log.info("Open chapter Tinman");
         $x(TINMAN_BUTTON).click();
         return this;
     }
 
-    public TinmanPage indicateInRunDistance() {
-        log.info("Get page if opened");
+    public TinmanPage clickInDistanceButton() {
+        log.info("Click in distance button");
         $x(KM_20_TINMAN).click();
         return this;
     }
 
-    public TinmanPage indicateTime(String hh, String mi, String sek) {
-        log.info("Get page if opened");
+    public TinmanPage enterTheDataInDistance(String hh, String mi, String sek) {
+        log.info("Enter the data in distance");
         $x(HH_TINMAN).sendKeys(hh);
         $x(MM_TINMAN).sendKeys(mi);
         $x(SS_TINMAN).sendKeys(sek);
@@ -50,37 +50,37 @@ public class TinmanPage {
     }
 
     public TinmanPage genderSelection() {
-        log.info("Get page if opened");
+        log.info("Gender selection");
         $x(MALE_TINMAN).click();
         return this;
     }
 
     public TinmanPage tinmanSaveButton() {
-        log.info("Get page if opened");
+        log.info("Tinman save button");
         $x(CALCULATE_PACES_TINMAN_BUTTON). click();
         switchTo().defaultContent();
         return this;
     }
 
     public boolean locatorForOutput() {
-        log.info("Get page if opened");
+        log.info("Locator for output");
         $x(RESULT);
         return true;
     }
 
-    public TinmanPage testShouldBeOutputResults () {
-        log.info("Get page if opened");
+    public TinmanPage outputOfTheRequiredResult () {
+        log.info("Output of the required result");
         Assert.assertTrue(locatorForOutput());
         return this;
     }
 
     public String getErrorText () {
-        log.info("Get page if opened");
+        log.info("Get error text");
         return  $x(ERROR_OF_SITE).getText();
     }
 
     public TinmanPage validateErrorText (String errorText) {
-        log.info("Get page if opened");
+        log.info("Validate error text");
         Assert.assertEquals(getErrorText(),errorText, "Please fix the following errors:");
         switchTo().defaultContent();
         return this;
