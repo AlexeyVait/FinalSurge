@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 public class PalladinoTest extends BaseTest {
 
-    @Test (description = "Result for Palladino test")
-    public void shouldBeToCalculateThePalladino() {
+    @Test (description = "Correct result when calculating the pace")
+    public void correctInputOfValidData() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -19,8 +19,8 @@ public class PalladinoTest extends BaseTest {
                 .cpFromRaceOrTTGreaterThanOrEqualToFortyMinutes("8", "30", "47");
     }
 
-    @Test(description = "Error entering values for Palladino test")
-    public void errorEnteringValuesPaceCalculator() {
+    @Test(description = "Result error when there is no data in the Critical Power field")
+    public void fillingInFieldsWithoutSpecifyingCriticalPower() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -29,8 +29,8 @@ public class PalladinoTest extends BaseTest {
                         "*Please enter a value for Critical Power.");
     }
 
-    @Test(description = "Error entering values for Palladino test")
-    public void errorEnteringValuesPaceCalculatorMaxCriticalPower() {
+    @Test(description = "Result error when specifying the maximum allowable value Critical Power")
+    public void dataEntryIsHigherThanTheMaximumAllowableValueCP() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -39,8 +39,8 @@ public class PalladinoTest extends BaseTest {
                         "*Critical Power cannot be greater than 500.00.");
     }
 
-    @Test(description = "Error entering values for Palladino test")
-    public void errorEnteringValuesPaceCalculatorMinCriticalPower() {
+    @Test(description = "Result error when specifying the minimum allowable value Critical Power")
+    public void dataEntryIsBelowTheMinimumAllowableValueCP() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -49,8 +49,8 @@ public class PalladinoTest extends BaseTest {
                         "*Critical Power cannot be less than 100.00.");
     }
 
-    @Test(description = "Error entering values for Palladino test")
-    public void errorEnteringValuesPaceCalculatorMaxReserveWorkCapacity() {
+    @Test(description = "Result error when specifying the maximum allowable value of Reserve Work Capacity")
+    public void dataEntryIsHigherThanTheMaximumAllowableValueRWC() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -59,8 +59,8 @@ public class PalladinoTest extends BaseTest {
                         "*Reserve Work Capacity cannot be greater than 30.00.");
     }
 
-    @Test(description = "Error entering values for Palladino test")
-    public void errorEnteringValuesPaceCalculatorMinReserveWorkCapacity() {
+    @Test(description = "Result error when specifying the minimum allowable value of Reserve Work Capacity")
+    public void dataEntryIsHigherThanTheMinimumAllowableValueRWC() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -69,9 +69,8 @@ public class PalladinoTest extends BaseTest {
                         "*Reserve Work Capacity cannot be less than 1.00.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirst() {
+    @Test(description = "Error in evaluating the result of running")
+    public void fillingInFieldsWithoutSpecifyingAvgPower () {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -81,9 +80,8 @@ public class PalladinoTest extends BaseTest {
                         "*Please enter a value for Average Power (Short).");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMinAveragePowerShort() {
+    @Test(description = "Result error when specifying the minimum allowed Avg. Power in the field 'Short'")
+    public void dataEntryIsHigherThanTheMinimumAllowableShortAP() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -93,9 +91,8 @@ public class PalladinoTest extends BaseTest {
                                 "*Average Power (Short) cannot be less than 20.00.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMaxAveragePowerShort() {
+    @Test(description = "Result error when specifying the maximum allowable Avg. Power in the field 'Short'")
+    public void dataEntryIsHigherThanTheMaximumAllowableShortAP() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -105,9 +102,8 @@ public class PalladinoTest extends BaseTest {
                                 "*Average Power (Short) cannot be greater than 800.00.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMinAveragePowerLong() {
+    @Test(description = "Result error when specifying the minimum allowed Avg. Power in the field 'Long'")
+    public void dataEntryIsHigherThanTheMinimumAllowableLongAP() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -117,9 +113,8 @@ public class PalladinoTest extends BaseTest {
                                 "*Average Power (Long) cannot be less than 20.00.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMaxAveragePowerLong() {
+    @Test(description = "Result error when specifying the maximum allowable Avg. Power in the field 'Long'")
+    public void dataEntryIsHigherThanTheMaximumAllowableLongAP() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -129,9 +124,8 @@ public class PalladinoTest extends BaseTest {
                                 "*Average Power (Long) cannot be greater than 800.00.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMaxMinShort() {
+    @Test(description = "Result error when specifying the maximum allowable Short mm")
+    public void dataEntryIsHigherThanTheMaximumAllowableShortMM() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -141,9 +135,8 @@ public class PalladinoTest extends BaseTest {
                                 "*Minutes (Short Test) cannot be greater than 59.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMaxSekShort() {
+    @Test(description = "Result error when specifying the maximum allowable Short ss")
+    public void dataEntryIsHigherThanTheMaximumAllowableShortSS() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -153,9 +146,8 @@ public class PalladinoTest extends BaseTest {
                                 "*Seconds (Short Test) cannot be greater than 59.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMaxMinLong() {
+    @Test(description = "Result error when specifying the maximum allowable Long mm")
+    public void dataEntryIsHigherThanTheMaximumAllowableLongMM() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -165,9 +157,8 @@ public class PalladinoTest extends BaseTest {
                                 "*Minutes (Long Test) cannot be greater than 59.");
     }
 
-    @Test(description = "Error entering values for Palladino in first test")
-    @Description()
-    public void errorEnteringValuesResultFirstMaxSekLong() {
+    @Test(description = "Result error when specifying the maximum allowable Long SS")
+    public void dataEntryIsHigherThanTheMaximumAllowableLongSS() {
         loginSteps
                 .correctLogin(user, password);
         palladinoSteps
@@ -177,8 +168,7 @@ public class PalladinoTest extends BaseTest {
                                 "*SECONDS (Long Test) cannot be greater than 59.");
     }
 
-    @Test(description = "Error entering values for Palladino in second test")
-    @Description()
+    @Test(description = "Result error when calculation range from 40 minutes or more")
     public void errorEnteringValuesResultSecond() {
         loginSteps
                 .correctLogin(user, password);
@@ -189,7 +179,7 @@ public class PalladinoTest extends BaseTest {
                         "*Please enter a value for Race Avg Power (W).");
     }
 
-    @Test(description = "Error entering values for Palladino in second test")
+    @Test(description = "Result error when specifying the minimum allowable value of AVG Power in the range from 40 minutes or more")
     @Description()
     public void errorEnteringValuesResultMinRaceAvgPowerW() {
         loginSteps
@@ -201,7 +191,7 @@ public class PalladinoTest extends BaseTest {
                                 "*Race Avg Power (W) cannot be less than 20.00.");
     }
 
-    @Test(description = "Error entering values for Palladino in second test")
+    @Test(description = "Result error when specifying the maximum allowable value of AVG Power in the range from 40 minutes or more")
     @Description()
     public void errorEnteringValuesResultMaxRaceAvgPowerW() {
         loginSteps
@@ -213,7 +203,7 @@ public class PalladinoTest extends BaseTest {
                                 "*Race Avg Power (W) cannot be greater than 800.00.");
     }
 
-    @Test(description = "Error entering values for Palladino in second test")
+    @Test(description = "Result error when specifying the maximum allowable value of minutes in the range from 40 minutes or more")
     @Description()
     public void errorEnteringValuesResultMaxMin() {
         loginSteps
@@ -225,7 +215,7 @@ public class PalladinoTest extends BaseTest {
                                 "*Minutes (Race Time) cannot be greater than 59.");
     }
 
-    @Test(description = "Error entering values for Palladino in second test")
+    @Test(description = "Result error when specifying the maximum allowable value of second in the range from 40 minutes or more")
     @Description()
     public void errorEnteringValuesResultMaxSecond() {
         loginSteps
@@ -237,7 +227,7 @@ public class PalladinoTest extends BaseTest {
                                 "*Seconds (Race Time) cannot be greater than 59.");
     }
 
-        @Test(enabled = false, description = "Error entering values for Palladino in third test")
+        @Test(enabled = false, description = "Result error when calculation range up to 40 minutes or less")
     public void errorEnteringValuesResultThird() {
         loginSteps
                 .correctLogin(user, password);

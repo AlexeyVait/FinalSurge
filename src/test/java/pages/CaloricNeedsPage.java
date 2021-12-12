@@ -1,9 +1,11 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
 
+@Log4j2
 public class CaloricNeedsPage {
 
     public static final String CALORIC_NEEDS_BUTTON = "//a[@href='#'][@data-reveal-id='OtherCalc']";
@@ -13,14 +15,15 @@ public class CaloricNeedsPage {
     public static final String CENTIMETERS = "//input[@name='HeightType'][@value='m']";
     public static final String AGE = "//input[@id='Age']";
     public static final String MALE = "//input[@id='optionsRadios5']";
-    public static final String FEMALE = "//input[@id='optionsRadios6']";
     public static final String TODAY_RUN_DISTANCE = "//input[@id='RunDist']";
     public static final String KILOMETERS = "//input[@id='optionsRadios8']";
     public static final String CALCULATING_SAVE_BUTTON = "//input[@id='saveButtonSettings']/../..//input";
     public static final String DATA_RESULT = "//div[@class='w-box w-box-green']";
     public static final String ERROR  = "//div[@class='alert alert-error']";
 
+
     public CaloricNeedsPage openOtherCalculators() {
+
         $x(CALORIC_NEEDS_BUTTON).click();
         switchTo().frame("OtherCalciFrame");
         //switchTo().defaultContent();

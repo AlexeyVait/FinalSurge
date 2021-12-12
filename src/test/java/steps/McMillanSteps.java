@@ -18,12 +18,12 @@ public class McMillanSteps {
         mcMillanPage
                 .openWorkoutCalculators()
                 .openChapterMcMillan()
-                .indicateInEstimatedRunDistance()
-                .indicateEstimatedTime(hh_time, mm_time, ss_time)
-                .indicateInRunDistanceOptional()
-                .indicateTimeOptional(hh_optional, mm_optional, ss_optional)
+                .clickInDistance()
+                .interDataInEstimatedTime(hh_time, mm_time, ss_time)
+                .enterInRunDistanceOptional()
+                .enterDataInTimeOptional(hh_optional, mm_optional, ss_optional)
                 .mcMillanSaveButton()
-                .testShouldBeOutputResults();
+                .buttonOnOutputResults();
         return this;
     }
 
@@ -34,10 +34,10 @@ public class McMillanSteps {
         mcMillanPage
                 .openWorkoutCalculators()
                 .openChapterMcMillan()
-                .indicateInEstimatedRunDistance()
-                .indicateEstimatedTime(hh_time, mm_time, ss_time)
-                .indicateInRunDistanceOptional()
-                .indicateTimeOptional(hh_optional, mm_optional, ss_optional)
+                .clickInDistance()
+                .interDataInEstimatedTime(hh_time, mm_time, ss_time)
+                .enterInRunDistanceOptional()
+                .enterDataInTimeOptional(hh_optional, mm_optional, ss_optional)
                 .mcMillanSaveButton()
                 .validateErrorText(getError);
         return this;

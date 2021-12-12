@@ -30,7 +30,7 @@ public class CalendarSteps {
                 .selectShowDistance()
                 .selectKmShowDistance()
                 .enterDataInInputDistance(HH, MM, SS)
-                .distancePlan(distancePlan)
+                .clickDistancePlan(distancePlan)
                 .selectDistance()
                 .selectKmDistance()
                 .planTime(hh, mm, ss)

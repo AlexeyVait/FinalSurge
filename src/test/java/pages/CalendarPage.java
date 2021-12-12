@@ -1,11 +1,12 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
-import steps.CalendarSteps;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.switchTo;
 
+@Log4j2
 public class CalendarPage {
 
     public static final String CREATE_BUTTON = "//td[@data-day]";
@@ -78,195 +79,234 @@ public class CalendarPage {
 
 
     public CalendarPage clickInButtonForCreateNewWorkout() {
+        log.info("Click in button for create new workout");
         $x(CREATE_BUTTON).submit();
         return this;
     }
 
     public CalendarPage clickInQuickAddButton() {
+        log.info("Click in quick add button");
         $x(QUICK_ADD).click();
         return this;
     }
 
     public CalendarPage selectionTimeAndDay() {
+        log.info("Selection time and day");
         $x(TIME_OF_DAY).click();
         return this;
     }
 
     public CalendarPage selectionActivityType() {
+        log.info("Selection activity type");
         $x(ACTIVITY_TYPE).click();
         return this;
     }
     public CalendarPage selectionFartlekActivityType() {
+        log.info("Selection fartlek activity type");
         $x(FARTLEK_ACTIVITY_TYPE).click();
         return this;
     }
 
     public CalendarPage enterInInputWorkoutName(String name) {
+        log.info("Enter in input workout name");
         $x(WORKOUT_NAME).sendKeys(name);
         return this;
     }
 
     public CalendarPage enterInformationInMenuWorkDescription(String description) {
+        log.info("Enter information in menu work description");
         $x(WORKOUT_DESCRIPTION).sendKeys(description);
         return this;
     }
 
     public CalendarPage showDistanceAndDuration() {
+        log.info("Show distance and duration");
         $x(SHOW_PLANNED_DISTANCE).click();
         return this;
     }
 
     public CalendarPage enterDistanceInInputShow(String distance) {
+        log.info("Enter distance in input show");
         $x(SHOW_DIST_TYPE).sendKeys(distance);
         return this;
     }
 
     public CalendarPage selectShowDistance() {
+        log.info("Select show distance");
         $x(SHOW_SELECT_DISTANCE).click();
         return this;
     }
 
     public CalendarPage selectKmShowDistance() {
+        log.info("Select KM show distance");
         $x(SHOW_KM_DISTANCE).click();
         return this;
     }
 
     public CalendarPage enterDataInInputDistance(String HH, String MM, String SS) {
+        log.info("Enter data in input distance");
         $x(SHOW_ADD_DATA_DISTANCE).sendKeys(HH, MM, SS);
         return this;
     }
 
-    public CalendarPage distancePlan(String distance) {
+    public CalendarPage clickDistancePlan(String distance) {
+        log.info("Distance plan");
         $x(DISTANCE).sendKeys(distance);
         return this;
     }
 
     public CalendarPage selectDistance() {
+        log.info("Select Distance");
         $x(SELECT_DISTANCE).click();
         return this;
     }
 
     public CalendarPage selectKmDistance() {
+        log.info("Select KM distance");
         $x(KM).click();
         return this;
     }
 
     public CalendarPage planTime(String HH, String MM, String SS) {
+        log.info("Plan time");
         $x(DURATION).sendKeys(HH, MM, SS);
         return this;
     }
 
     public CalendarPage selectSpeed() {
+        log.info("Select speed");
         $x(SELECT_PACE).click();
         return this;
     }
 
     public CalendarPage selectKmSpeed() {
+        log.info("Select KM speed");
         $x(MIN_KM_PACE).click();
         return this;
     }
 
     public CalendarPage needSelectHealth() {
+        log.info("Need selection health");
         $x(HOVE_I_FELT).click();
         return this;
     }
 
     public CalendarPage selectTheGoodButton() {
+        log.info("Select the good button");
         $x(GOOD).click();
         return this;
     }
 
     public CalendarPage needSelectPerceivedEffort() {
+        log.info("Need select perceived effort");
         $x(PERCEIVED_EFFORT).click();
         return this;
     }
 
     public CalendarPage resultPerceivedEffort() {
+        log.info("Result perceived effort");
         $x(MODERATE_2).click();
         return this;
     }
 
     public CalendarPage enterResultInWorkoutNotes(String data) {
+        log.info("Enter result in workout notes");
         $x(POST_WORKOUT_NOTES_RESULTS).sendKeys(data);
         return this;
     }
 
     public CalendarPage clickInButtonRace() {
+        log.info("Click in button race");
         $x(MARK_AS_RACE).click();
         return this;
     }
 
     public CalendarPage enterDataInInputOverallPlace(String data) {
+        log.info("Enter data in input overall place");
         $x(OVERALL_PLACE).sendKeys(data);
         return this;
     }
 
     public CalendarPage enterDataInInputGroupPlace(String age){
+        log.info("Enter data in input group place");
         $x(AGE_GROUP_PLACE).sendKeys(age);
         return this;
     }
 
     public CalendarPage saveToLibraryWorkout() {
+        log.info("Save to library workout");
         $x(SAVE_TO_LIBRARY).click();
         return this;
     }
 
     public CalendarPage addWorkout() {
+        log.info("Add workout");
         $x(ADD_WORKOUT_BUTTON).click();
         return this;
     }
 
     public CalendarPage openCalendar() {
+        log.info("Open calendar");
         $x(CALENDAR).click();
         return this;
     }
 
     public CalendarPage openView() {
+        log.info("Open view");
         $x(VIEW).click();
         return this;
     }
 
     public CalendarPage clickButtonView() {
+        log.info("Click button view");
         $x(UPDATE_WORKOUT_BUTTON_VIEW).click();
         return this;
     }
 
     public CalendarPage updateDistance(String basic_distance) {
+        log.info("Update distance");
         $x(DISTANCE_VIEW).sendKeys(basic_distance);
         return this;
     }
 
     public CalendarPage selectUpdateDistance() {
+        log.info("Select update distance");
         $x(SELECT_KM_BASIK_VIEW).click();
         return this;
     }
 
     public CalendarPage selectUpdateKmDistance() {
+        log.info("Select update KM distance");
         $x(KM_BASIK_VIEW).click();
         return this;
     }
 
     public CalendarPage updateTime() {
+        log.info("Update time");
         $x(DURATION_VIEW).click();
         return this;
     }
 
     public CalendarPage updateNormalView() {
+        log.info("Update normal View");
         $x(NORMAL_VIEW).click();
         return this;
     }
 
     public CalendarPage updateSelectView() {
+        log.info("Update select view");
         $x(SELECT_VIEW).click();
         return this;
     }
 
     public CalendarPage updateHardView() {
+        log.info("Update hard view");
         $x(HARD_1_VIEW).click();
         return this;
     }
 
     public CalendarPage minNumberOfHeartBeatsPerMinute(String amount) {
+        log.info("Min number of heart beats per minute");
         $x(MIN_HR_VIEW).sendKeys(amount);
         return this;
     }
