@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Regression test suite" parallel="tests">
+
+    <listeners>
+        <listener class-name="tests.base.AutomationTransformer"/>
+    </listeners>
+
+    <test name="Functional suite for Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.CalendarTest"/>
+            <class name="tests.CaloricNeedsTest"/>
+            <class name="tests.HansonsTest"/>
+            <class name="tests.IntensityTest"/>
+            <class name="tests.LoginTest"/>
+            <class name="tests.McMillanTest"/>
+            <class name="tests.PaceCalculatorTest"/>
+            <class name="tests.PalladinoTest"/>
+            <class name="tests.TinmanTest"/>
+        </classes>
+    </test>
+
+    <test name="Functional suite for Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.CalendarTest"/>
+            <class name="tests.CaloricNeedsTest"/>
+            <class name="tests.HansonsTest"/>
+            <class name="tests.IntensityTest"/>
+            <class name="tests.LoginTest"/>
+            <class name="tests.McMillanTest"/>
+            <class name="tests.PaceCalculatorTest"/>
+            <class name="tests.PalladinoTest"/>
+            <class name="tests.TinmanTest"/>
+        </classes>
+    </test>
+
+</suite>

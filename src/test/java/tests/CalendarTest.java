@@ -1,10 +1,11 @@
 package tests;
 
 import org.testng.annotations.Test;
+import tests.base.Retry;
 
 public class CalendarTest extends BaseTest {
 
-    @Test (description = "Correct data entry to fill in the calendar")
+    @Test (retryAnalyzer = Retry.class, description = "Correct data entry to fill in the calendar")
     public void addAQuickWorkoutWithValidData() {
         loginSteps
                 .correctLogin(user, password);

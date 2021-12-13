@@ -24,6 +24,7 @@ public class TestListener implements ITestListener {
                 getExecutionTime(iTestResult)));
     }
 
+
     private long getExecutionTime(ITestResult iTestResult) {
         return TimeUnit.MILLISECONDS.toSeconds(iTestResult.getEndMillis() - iTestResult.getStartMillis());
     }

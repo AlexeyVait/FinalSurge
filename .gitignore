@@ -1,2 +1,7 @@
 # Project exclude paths
 /target/
+.idea
+allure-results
+config.properties
+FinalSurge.iml
+.allure
