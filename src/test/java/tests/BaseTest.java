@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
@@ -52,25 +54,22 @@ public class BaseTest {
     public String user;
     public String password;
 
-    @Parameters({"browser"})
-    @BeforeMethod(description = "Open Browser")
-    public void setUp(@Optional("firefox") String browser, ITestContext testContext) {
-        if (browser.equals(("chrome"))) {
+    @BeforeClass
+    @Parameters("browser")
+    public void initialization(String browser) {
+        if (browser.equalsIgnoreCase("chrome_suite_one")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized");
-            options.addArguments("--headless");
-            options.addArguments("--disable-notifications");
+            options.setHeadless(true);
             driver = new ChromeDriver(options);
-        } else if (browser.equals("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--start-maximized");
-            options.addArguments("--headless");
-            options.addArguments("--disable-notifications");
-            driver = new FirefoxDriver(options);
+        }
 
-            testContext.setAttribute("driver", driver);
+        if (browser.equalsIgnoreCase("chrome_suite_two")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.setHeadless(true);
+            driver = new ChromeDriver(options);
+        }
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             wait = new WebDriverWait(driver, 25);
 
@@ -96,8 +95,6 @@ public class BaseTest {
             mcMillanSteps = new McMillanSteps();
             palladinoSteps = new PalladinoSteps();
             tinmanSteps = new TinmanSteps();
-
-        }
     }
 
         @AfterMethod(alwaysRun = true, description = "Close Browser")
